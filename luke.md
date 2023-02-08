@@ -17,3 +17,8 @@ I'm not sure how to get started building tests when I do something like Hackerra
 
 ## Set up Ruby 2.0
 99 Bottles of OOP uses Ruby 2.0. Walk me through setting up a separate version on my machine.
+
+## Metz Talk
+I don't understand what she means by dependency injection
+- Injection and injecting dependencies. [here](https://youtu.be/v-2yFMzxqwU?list=PLqal2KPbpmUwQurG_ixyT9pAHcesUjvJ5&t=2223).
+- Are there areas in our app where we do or do not do this?
