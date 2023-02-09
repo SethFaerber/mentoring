@@ -27,3 +27,10 @@ I don't understand what she means by dependency injection
 - "TDD and DRY are training wheels to get to true SOLID design principles"
 - What are "interfaces?" @ about the 45:00 mark
 - @ 44:12 "There's a tension between having incredibly straightforward procedural code and well-factored abstractions. Well-factored abstractions are what's easy to use."
+
+## TDD
+I'm committing to solve Hackerrank problems using a TDD approach. I'll need some advice.
+ - I have some red flags about it.
+   - Won't it lead to procedural coding?
+   - Won't it limit global thinking when brainstorming solutions?
+ - How do I set up instance variables for use in the tests?
