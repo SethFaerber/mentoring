@@ -6,6 +6,7 @@ I want to know if I'm just too green to get it, or if it is a reflection of some
 
 Example: Adding rows/columns to the database
 - What is the quality of the code in our app?
+- [TDD Harms Architecture](http://blog.cleancoder.com/uncle-bob/2017/03/03/TDD-Harms-Architecture.html) by Uncle Bob.
 - What are some of the concerning things about its architecture?
 - What are some patterns that you want me to shut my eyes over?
 
@@ -21,4 +22,8 @@ I'm not sure how to get started building tests when I do something like Hackerra
 ## Metz Talk
 I don't understand what she means by dependency injection
 - Injection and injecting dependencies. [here](https://youtu.be/v-2yFMzxqwU?list=PLqal2KPbpmUwQurG_ixyT9pAHcesUjvJ5&t=2223).
+- "Injecting dependencies" as opposed to what? What's the non-example?
 - Are there areas in our app where we do or do not do this?
+- "TDD and DRY are training wheels to get to true SOLID design principles"
+- What are "interfaces?" @ about the 45:00 mark
+- @ 44:12 "There's a tension between having incredibly straightforward procedural code and well-factored abstractions. Well-factored abstractions are what's easy to use."
