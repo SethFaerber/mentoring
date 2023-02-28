@@ -15,6 +15,7 @@ Example: Adding rows/columns to the database
 I'm not sure how to get started building tests when I do something like Hackerrank.
 - Should I start with really simple methods and test each method as I go?
 - Let's look at kangaroo.rb
+- Dependency Injection? How to write unit tests when they all depend on each other?
 
 ## Set up Ruby 2.0
 99 Bottles of OOP uses Ruby 2.0. Walk me through setting up a separate version on my machine.
@@ -34,3 +35,7 @@ I'm committing to solve Hackerrank problems using a TDD approach. I'll need some
    - Won't it lead to procedural coding?
    - Won't it limit global thinking when brainstorming solutions?
  - How do I set up instance variables for use in the tests?
+
+## Random Topics
+Extraneous topics to cover whenever we have time.
+ - Rails engine. What is it and why.
