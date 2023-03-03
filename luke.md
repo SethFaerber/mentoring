@@ -39,3 +39,11 @@ I'm committing to solve Hackerrank problems using a TDD approach. I'll need some
 ## Random Topics
 Extraneous topics to cover whenever we have time.
  - Rails engine. What is it and why.
+ - Loggly
+ - Apophenia
+ - AuthX vs Auth0
+ - Nokogiri
+ - New Relic
+ - Task Engine
+ - TaskAPI
+ - Segment
