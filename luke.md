@@ -36,6 +36,9 @@ I'm committing to solve Hackerrank problems using a TDD approach. I'll need some
    - Won't it limit global thinking when brainstorming solutions?
  - How do I set up instance variables for use in the tests?
 
+## Git Learning
+ - Don't make a ticket pullable until all commits are in a single 
+
 ## Random Topics
 Extraneous topics to cover whenever we have time.
  - Rails engine. What is it and why.
@@ -47,3 +50,16 @@ Extraneous topics to cover whenever we have time.
  - Task Engine
  - TaskAPI
  - Segment
+ - self
+ - method_name! safe/unsafe "!" = semantic "this method is able to raise an error." Can be dangreous
+ - define_singleton_method
+
+## Learned
+These are things from this list that I've resolved on my own. Double check with Luke to make sure I have a good understanding.
+### Singleton Class
+ - [Read about it here](https://medium.com/@leo_hetsch/demystifying-singleton-classes-in-ruby-caf3fa4c9d91)
+ - Allows you to assign new methods to different instances of objects.
+ - Singleton can assign methods to an instantiated object, then another method to a different instantiated object.
+ - class << self creates class methods rather than instance methods. These class methods can be called without needing to instantiate an object first. 
+### Accessors & Private
+ - You can get around an attr accessor by using public methods which change the properties within them. It's important to set methods to private so that isn't exposed.
