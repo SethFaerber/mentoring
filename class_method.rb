@@ -23,3 +23,5 @@ classMethod.print_class_method
 
 # The instance method can only be called from an instanced object of a class.
 ClassMethod.print_instance_method
+
+
