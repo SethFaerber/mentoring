@@ -39,11 +39,14 @@ I'm committing to solve Hackerrank problems using a TDD approach. I'll need some
 ## Git Learning
  - Don't make a ticket pullable until all commits are in a single 
 
+## Design Patterns
+This is called out specifically in my Growth Track Assessment
+- Overview of Design Patterns: https://sourcemaking.com/design_patterns
+
 ## Random Topics
 Extraneous topics to cover whenever we have time.
  - Rails engine. What is it and why.
  - Loggly
- - Apophenia
  - AuthX vs Auth0
  - Nokogiri
  - New Relic
@@ -53,13 +56,42 @@ Extraneous topics to cover whenever we have time.
  - self
  - method_name! safe/unsafe "!" = semantic "this method is able to raise an error." Can be dangreous
  - define_singleton_method
+ - config routes
+ - %i
+ - (&:method)
+ - Singleton Method vs Singleton Pattern
+ - self.method vs class << self => define metho. Same thing?
 
 ## Learned
 These are things from this list that I've resolved on my own. Double check with Luke to make sure I have a good understanding.
+ - Apophenia - An internally maintained gem which standardizes and permanently stores data logs.
+   - [https://docs.ramseysolutions.net/frameworks/apophenia-documentation/apophenia-ruby/index.html](https://docs.ramseysolutions.net/frameworks/apophenia-documentation/apophenia-ruby/index.html)
+   - 
+
 ### Singleton Class
  - [Read about it here](https://medium.com/@leo_hetsch/demystifying-singleton-classes-in-ruby-caf3fa4c9d91)
  - Allows you to assign new methods to different instances of objects.
  - Singleton can assign methods to an instantiated object, then another method to a different instantiated object.
  - class << self creates class methods rather than instance methods. These class methods can be called without needing to instantiate an object first. 
+
 ### Accessors & Private
  - You can get around an attr accessor by using public methods which change the properties within them. It's important to set methods to private so that isn't exposed.
+
+### Factory Design Pattern
+- A parent class that creates subclasses. Relies on inheritance. 
+  - https://www.youtube.com/watch?v=EdFq_JIThqM
+
+### Tech Design
+ - Lucid Chart is useful for UML [random_tables](https://lucid.app/lucidchart/c2b3121b-eabf-4e6b-9dce-93f5eb39fef3/edit?viewport_loc=-660%2C-742%2C2424%2C1277%2C0_0&invitationId=inv_76500bd7-e43b-4773-b3c7-d257f3a62b25)
+
+### Rails
+ - Many to many Active Record Associations (Dogs and Dogsitters)
+   - [Documentation](https://guides.rubyonrails.org/association_basics.html#the-has-and-belongs-to-many-association)
+   - This can be done "without" a join model (a join model is built in the migration, but it's sole purpose is to point the two tables at each other).
+   - `has_and_belongs_to_many` Association in the model
+   - the join table looks like
+   `    create_table :account_histories do |t|
+     t.belongs_to :account
+     t.integer :credit_rating
+     t.timestamps
+     end`
