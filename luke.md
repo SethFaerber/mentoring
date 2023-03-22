@@ -89,10 +89,19 @@ These are things from this list that I've resolved on my own. Double check with 
    - [Documentation](https://guides.rubyonrails.org/association_basics.html#the-has-and-belongs-to-many-association)
    - This can be done "without" a join model (a join model is built in the migration, but it's sole purpose is to point the two tables at each other).
    - `has_and_belongs_to_many` Association in the model
-   - the join table looks like
-   `    create_table :account_histories do |t|
-     t.belongs_to :account
-     t.integer :credit_rating
-     t.timestamps
-     end`
+   - the join table looks like:
+```
+ create_table :collections_terms, id: false do |t|
+   t.belongs_to :collection
+   t.belongs_to :term
+ end
+```
 
+ - Database
+   - Rubymine > View > Tools Window > Database
+   - I can view the database tables. Very useful for hunting things down.
+   - Datagrip also does this, but I don't have access to that tool. I'd have to go through procurement.
+
+### Git
+- `rails new dir_name` initializes a new local git repo. It is important that the remote repo on Github is NOT initialized with a ReadMe or a .gitignore because the branches will absolutely hate each other.
+- 
