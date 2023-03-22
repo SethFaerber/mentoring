@@ -95,3 +95,4 @@ These are things from this list that I've resolved on my own. Double check with 
      t.integer :credit_rating
      t.timestamps
      end`
+
