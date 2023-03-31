@@ -13,6 +13,7 @@ This documents the main things I learned this week.
   - Confidently find and follow documentation on migrating dependencies.
   - Confidently yarn remove/add @version
   - Confidently test as I go... yarn test/build/start
+  - Confidently determine if a dependency is a "dependency" or a "devDependency"
   - Awareness of debugging problems
     - Reading error logs
     - Finding solutions online and implementing them
