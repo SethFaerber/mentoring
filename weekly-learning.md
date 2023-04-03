@@ -4,7 +4,13 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
 
-## Current Week: 03/27 - 03/31
+## Current Week: April 3 - 7
+- Active Record
+  - Awareness of `has_and_belongs_to_many` association ( like students to teachers)
+  - Awareness of writing migrations to assocaite models with each other.
+  - Awareness of rolling back a migration when a mistake is made `rails db:rollback`
+
+## May 27 - 31
 
 - Version Control:
   - Confidently clone, branch, checkout, commit, and merge in other repos.
