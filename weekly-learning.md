@@ -6,6 +6,7 @@ This documents the main things I learned this week.
 
 ## Current Week: April 3 - 7
 - Active Record
+  - Confidently use Rails Console to interact with Active Record.
   - Awareness of `has_and_belongs_to_many` association ( like students to teachers)
   - Awareness of writing migrations to assocaite models with each other.
   - Awareness of rolling back a migration when a mistake is made `rails db:rollback`
