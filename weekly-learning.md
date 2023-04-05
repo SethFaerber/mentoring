@@ -7,9 +7,15 @@ This documents the main things I learned this week.
 ## Current Week: April 3 - 7
 - Active Record
   - Confidently use Rails Console to interact with Active Record.
+  - Confidently write Active Record queries to create and associate records.
+  - Confidently seed database.
   - Awareness of `has_and_belongs_to_many` association ( like students to teachers)
   - Awareness of writing migrations to assocaite models with each other.
   - Awareness of rolling back a migration when a mistake is made `rails db:rollback`
+- RDS
+  - Confidently install RDS gems.
+  - Awareness of using installed RDS Components in our app.
+  - Awareness: Hunted down and joined RDS Teams channel and reached out to Grant for assistance.
 
 ## May 27 - 31
 
