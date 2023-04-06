@@ -16,6 +16,9 @@ This documents the main things I learned this week.
   - Confidently install RDS gems.
   - Awareness of using installed RDS Components in our app.
   - Awareness: Hunted down and joined RDS Teams channel and reached out to Grant for assistance.
+- Documentation
+  - Confidently add to documentation in other repos (RDS docs PR: https://github.com/lampo/ramsey-design-system-documentation/pull/480)
+  - Awareness of how to find docs in various repos.
 
 ## May 27 - 31
 
