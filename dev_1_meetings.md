@@ -2,14 +2,12 @@
 
 Connect to discuss and document the future of Dev1
 
-## Sporatic Transition
-
 ## What’s the vision? 
  - Hello Friends, 
 Welcome to the Dev1 meetings. Our mission is to create a pressure-free learning space for all dev1s to come and share their knowledge, build their public speaking skill, and create valuable relationships with fellow software engineers. We are always trying to make this meeting more valuable, so please feel free to suggest ways we can make it better. After all this meeting is for us! Moving forward, we will incorporate more things like lighting talk, guest speakers and other cool ideas. Currently, the usual structure is
-Ice Breaker
-Word of the week
-Demos
+- Ice Breaker
+- Word of the week
+- Demos
 We always love to see you there! Feel free to forward the meeting for a dev1 who might be interested. The last meeting series ended, and I am sending a new one that goes up to Dec. I tried to include everyone, but if I missed anyone, please extend the invite. Thank you :)
 
  - A place to say stupid things 
@@ -51,3 +49,18 @@ We always love to see you there! Feel free to forward the meeting for a dev1 who
 
 ## Activity Ideas
 - Lean Coffee: Sticky note topics, dot vote, Kanban: Topics / Discuss / Done
+
+## Josh's Findings
+- Dev1 was a place for JumpSeat to be less homeless while they jumped between squads.
+- Dev1 
+- The more experience they get, the less they come for support.
+- 
+- Lots of meetings on Fridays
+- "Meeting became a hard thing to justify with everything else going on."
+- Conclusion: If we hire more Dev1's, this should be an almost required community. However, they are gaining more experience and Dev1 is a lot like Chapter Meetings.
+
+## Moving Forward
+- Friday is the last Friday for Ryan and Fridays
+- Wednesday, connect with Investment Fund.
+- "Plan on Thursdays" time TBD.
+- Small but useful! Dev1 - It's about us.

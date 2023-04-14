@@ -4,7 +4,15 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
 
-## Current Week: April 3 - 7
+## Current Week: April 10 - 14
+- Styling
+  - Confidently use RDS Design Tokens for Styling
+  - Confidently add a new `.scss` file and IMPORT IT 😅
+- Data
+  - Confidently add dynamic data to YML text.
+  - Confidently find user data I'm looking for like `User.current_user.created_at`
+
+## April 3 - 7
 - Active Record
   - Confidently use Rails Console to interact with Active Record.
   - Confidently write Active Record queries to create and associate records.
