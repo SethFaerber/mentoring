@@ -4,13 +4,34 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
 
-## Current Week: April 10 - 14
+## Current Week: April 16 - 20
+- Git
+  - Awareness of dealing with merge conflicts
+  - Awareness of `git` best practices
+    - Create Draft PR right away
+      - Gives visibility to your changes
+    - Rebase early and often to avoid merge conflicts
+      - `git fetch` to grab remote changes
+      - `git rebase origin/master` to set my local branch at the head.
+    - Squash commits into a single PR
+      - `git rebase -i HEAD~number_of_commits_plus_one` `-i` opens IDE to edit commits. `f` to squash a commit into another. `r` ???
+      - `git rebase --continue` if needed
+      - `git push --force` to force the newly squshed local commit to overwrite the remote.
+- Migrations
+  - Confidently create release flag and accompanying `features.yml` (which automatically sets up flags for new devs)
+- Testing
+  - 
+
+## April 10 - 14
 - Styling
   - Confidently use RDS Design Tokens for Styling
   - Confidently add a new `.scss` file and IMPORT IT 😅
 - Data
   - Confidently add dynamic data to YML text.
   - Confidently find user data I'm looking for like `User.current_user.created_at`
+- Git
+  - Confidently know that merge conflicts suck 😮‍💨
+  - Awareness of git workflow with multiple people working on similar files simultaneously.
 
 ## April 3 - 7
 - Active Record
