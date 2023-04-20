@@ -4,6 +4,14 @@ class Table
     @type = type
   end
 
+  def self.build(data, type)
+    if type == "D20"
+      D20Table.new(data, type)
+    elsif type == "ActionTheme"
+      ActionThemeTable.new(data, type)
+    end
+  end
+
   def describe
     puts "This is a #{@type} table.\nIt's contents are:\n#{@data}\n\n"
   end
@@ -13,13 +21,13 @@ class Table
   end
 end
 
-class D20 < Table
+class D20Table < Table
   def roll
     puts "You roll on the table and get #{ @data.sample.upcase }\n\n"
   end
 end
 
-class ActionTheme < Table
+class ActionThemeTable < Table
   def roll
     puts "You roll on the table and get\n"
     puts "Action: #{ @data[:action].sample.upcase }"
@@ -27,22 +35,13 @@ class ActionTheme < Table
   end
 end
 
-class TableFactory
-  def self.build(data, type)
-    if type == "D20"
-      D20.new(data, type)
-    elsif type == "ActionTheme"
-      ActionTheme.new(data, type)
-    end
-  end
-end
 
 
 d20Data = %w(bear crow raven frog rabbit deer sparrow squirrel chipmunk 'possum racoon skunk cicada badger turtle wolf fox lynx mouse rat)
 actionThemeData = { action: %w(take leave create destroy amaze forsake), theme: %w(destiny past future supply hope secret) }
 
-d20 = TableFactory.build(d20Data, "D20")
-actionTheme = TableFactory.build(actionThemeData, "ActionTheme")
+d20 = Table.build(d20Data, "D20")
+actionTheme = Table.build(actionThemeData, "ActionTheme")
 
 d20.describe
 d20.roll
