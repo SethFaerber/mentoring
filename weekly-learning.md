@@ -4,7 +4,7 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
 
-## Current Week: April 16 - 20
+## Current Week: April 17 - 21
 - Git
   - Awareness of dealing with merge conflicts
   - Awareness of `git` best practices
@@ -20,7 +20,16 @@ This documents the main things I learned this week.
 - Migrations
   - Confidently create release flag and accompanying `features.yml` (which automatically sets up flags for new devs)
 - Testing
-  - 
+  - Awareness of mocking Api calls in tests.
+- Design Patterns
+  - Confidently articulate the purpose and use cases for Factory Pattern
+  - Awareness of how to build a factory pattern
+  - Awareness of factory patterns in S$ app
+- Oddity
+  - `.presence` returns an object or `nil`.
+  - Assignment operator `=` can be used in an `if` conditional to assign or else evaluate falsy.
+  - Combine these two
+    - `if (object = other_object.presence) { object }` returns the newly assigned object or else evaluates falsy.
 
 ## April 10 - 14
 - Styling
