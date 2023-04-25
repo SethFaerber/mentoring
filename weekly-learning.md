@@ -5,6 +5,8 @@ This documents the main things I learned this week.
 
 
 ## Current Week: April 24 - 28
+- Design Patterns
+  - Confidently use and explain Strategy Pattern: [Two examples I wrote here](https://github.com/SethFaerber/mentoring/blob/main/design-patterns/strategy_pattern.rb).
 - Styling
   - Confidently use new RDS Components (Link, Grid, etc.)
 - Data
