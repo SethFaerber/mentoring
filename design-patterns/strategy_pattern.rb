@@ -39,7 +39,7 @@ Oracle.roll(actionThemeData, TableRollers::ActionThemeTableRoller)
 module Rollers
   class OnceRoller
     def self.roll(data)
-      puts "1. #{ data.sample.upcase }\n"
+      puts "1. #{ data.sample.upcase }\n\n"
     end
   end
 
@@ -50,6 +50,8 @@ module Rollers
       2.times do |n|
         puts "#{n}. #{ randomizedData.pop }\n"
       end
+
+      puts "\n"
     end
   end
 
@@ -60,6 +62,8 @@ module Rollers
       3.times do |n|
         puts "#{n}. #{ randomizedData.pop }\n"
       end
+
+      puts "\n"
     end
   end
 
@@ -70,6 +74,8 @@ module Rollers
       data.length.times do |n|
         puts "#{ n + 1 }. #{ randomizedData.pop }\n"
       end
+
+      puts "\n"
     end
   end
 end
@@ -83,4 +89,6 @@ class RollerInterface
 end
 
 RollerInterface.roll(Rollers::OnceRoller)
+RollerInterface.roll(Rollers::TwiceRoller)
+RollerInterface.roll(Rollers::ThriceRoller)
 RollerInterface.roll(Rollers::FullRoller)
