@@ -1,4 +1,8 @@
-# Strategy
+# Strategy pattern is used to create unique methods or algorithms which act on an encapsulated data set.
+# The idea is that the main class's data is open for use but closed for modification.
+# This allows new classes to be written which handle the same source of data in very different ways.
+# The benefit of this over factory, is that the main class needs no modification. You simply write a new strategy class and pass it to the main class.
+# The drawback is ... not sure.
 
 module TableRollers
   class D20TableRoller
