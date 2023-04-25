@@ -48,7 +48,7 @@ module Rollers
       randomizedData = data.shuffle
 
       2.times do |n|
-        puts "#{n}. #{ randomizedData.pop }\n"
+        puts "#{ n + 1 }. #{ randomizedData.pop.upcase }\n"
       end
 
       puts "\n"
@@ -60,7 +60,7 @@ module Rollers
       randomizedData = data.shuffle
 
       3.times do |n|
-        puts "#{n}. #{ randomizedData.pop }\n"
+        puts "#{ n + 1 }. #{ randomizedData.pop.upcase }\n"
       end
 
       puts "\n"
@@ -72,7 +72,7 @@ module Rollers
       randomizedData = data.shuffle
 
       data.length.times do |n|
-        puts "#{ n + 1 }. #{ randomizedData.pop }\n"
+        puts "#{ n + 1 }. #{ randomizedData.pop.upcase }\n"
       end
 
       puts "\n"
