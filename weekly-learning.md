@@ -4,7 +4,15 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
 
-## Current Week: April 17 - 21
+## Current Week: April 24 - 28
+- Styling
+  - Confidently use new RDS Components (Link, Grid, etc.)
+- Data
+  - Confidently include and use helpers where needed `BabyStepsHelper` for example.
+- Git
+  - Awareness of the concept of `checkout` to revert files I don't want changed in my PRs such as `db/schema.rb`.
+
+## April 17 - 21
 - Git
   - Awareness of dealing with merge conflicts
   - Awareness of `git` best practices
