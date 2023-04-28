@@ -7,10 +7,16 @@ This documents the main things I learned this week.
 ## Current Week: April 24 - 28
 - Design Patterns
   - Confidently use and explain Strategy Pattern: [Two examples I wrote here](https://github.com/SethFaerber/mentoring/blob/main/design-patterns/strategy_pattern.rb).
+  - Confidently use and explain Singleton Pattern: [Two examples I wrote here](https://github.com/SethFaerber/mentoring/blob/main/design-patterns/singleton_pattern.rb).
 - Styling
   - Confidently use new RDS Components (Link, Grid, etc.)
 - Data
   - Confidently include and use helpers where needed `BabyStepsHelper` for example.
+  - Awareness of using named parameters, and doing API calls in the instantiation.
+    - `<%= render(Dashboard::BabyStepProgressCardComponent.new(baby_step: Api::BabyStep.current, goal: "76")) %>`
+  - `object&.method` just in case the method returns `nil`.
+  - Awareness of `delegate` concept
+  - Awareness of `RequestStore` gem
 - Git
   - Awareness of the concept of `checkout` to revert files I don't want changed in my PRs such as `db/schema.rb`.
 

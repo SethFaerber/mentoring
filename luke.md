@@ -1,5 +1,17 @@
 # Topics for Discussion
 
+## Dynamic Data
+- Need to clarify my thinking. I'm still thinking in React terms. I find myself looking for an object 
+  with `state` in it that's easy to find and call. The source of data seems so abstracted and obsured away
+  that I'm not sure if it even exists concretely somewhere, or if an api call is made every time I need to 
+  access it. For example, I can see a method on the `Goal` class called `percent_complete`.
+- models/api/goals/baby_step/model.rb
+- financial_wellness/goal_api/goal.rb `percent_complete`. This exists for the current user, so how do I access it without instantiating the class? I don't want a new goal.
+- components/baby_step_layout_component.rb
+- `Track::BabyStepModalComponent` `goal: baby_step_goal`
+- `page_baby_step`
+- `Api` model / modules
+
 ## Quality in our app
 Some areas of the app are so complex, that it seems to me like bad design. 
 I want to know if I'm just too green to get it, or if it is a reflection of some bad pattern.

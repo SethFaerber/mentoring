@@ -1,4 +1,7 @@
 # Singleton pattern enforces a single instantiation of its object by privatizing the `:new` method.
+# This is mainly a novelty or a bad idea. It acts like an unchangeable global variable.
+# Once your ecosystem becomes dependant on it, it can be really gross to rip out when when need to change something.
+
 
 class SingleLadies
   @@instance = SingleLadies.new
