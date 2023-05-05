@@ -4,7 +4,23 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
 
-## Current Week: April 24 - 28
+## Current Week: May 1 - 5
+- Data
+  - Awareness of how to sus-out the data I need using existing features.
+  - Awareness that sometimes objects contain methods that aren't easy to find. 
+  - Factory to build our BabyStep classes out into their own thing.
+- Testing
+  - Confidently articulate Arrange, Act, Assert
+  - Awareness of how and why to stub data for network calls.
+  - Awareness of different [RSpec expectations](https://github.com/rspec/rspec-expectations) 
+- OOP
+  - Awareness that Ruby's seemingly "typed" language is actually a facade. Exampe, `String` type is actually just a class that can be modified like any other.
+  - Awareness that this means, our Ruby apps are essentially programming languages in themselves.
+- Patterns
+  - Monkey Patch. We bring an SDK/gem in, but redefine some of its methods in our app. Sharp knives...generally a bad idea. Best idea is to patch the SDK and bump the version so all the world can share.
+
+
+## April 24 - 28
 - Design Patterns
   - Confidently use and explain Strategy Pattern: [Two examples I wrote here](https://github.com/SethFaerber/mentoring/blob/main/design-patterns/strategy_pattern.rb).
   - Confidently use and explain Singleton Pattern: [Two examples I wrote here](https://github.com/SethFaerber/mentoring/blob/main/design-patterns/singleton_pattern.rb).

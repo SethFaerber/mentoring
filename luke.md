@@ -1,5 +1,21 @@
 # Topics for Discussion
 
+## Ceramics Connect
+
+### The `percent_complete` Mystery
+- `BabyStepTwoGoalDecorator` is obvious.
+- `BabyStepSixGoalDecorator` is obvious...but it's flipped.
+- What about the others?
+  - `Api::Goals::BabyStep::Model` `delegate :percent_complete, to :goal`
+    - What is `:goal`? Where, how why?
+- Generally need to talk about Decorators.
+
+### Baby Step 6 and FPU
+- What is going on here?
+- What are Decorators doing?
+- Shouldn't we produces a standard form for these Baby Step objects, so that `.current_amount` always means the same thing?
+- Why do things get weird on the page when we mess with this?
+
 ## Dynamic Data
 - Need to clarify my thinking. I'm still thinking in React terms. I find myself looking for an object 
   with `state` in it that's easy to find and call. The source of data seems so abstracted and obsured away
