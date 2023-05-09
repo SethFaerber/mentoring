@@ -4,7 +4,24 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
 
-## Current Week: May 1 - 5
+## Current Week: May 8 - 12
+- Testing
+  - Confidently find existing stubs and apply them as needed. _Hello `stub_debt_snowball`._
+  - Confidently use and explain what Capybara allows us to do (simulate a user interacting with a rendered component)
+  - Confidently get annoyed with Capybara not providing a way to see why a `.has_text` test failed 😆
+  - Confidently interact with features hidden behind flags and 1:1 Coaching.
+    - Enable/disable proper flag
+    - `app/models/product_variant/base.rb`
+      ```
+      def can_access_one_on_one_coaching?
+        # !!Current.coaching_organization.max_bookings.nonzero?
+        true
+      end
+      ```
+- Design Patterns
+  - Awareness of how a decorator adds functionality to an object by wrapping it to dynamically add methods.
+
+## May 1 - 5
 - Data
   - Awareness of how to sus-out the data I need using existing features.
   - Awareness that sometimes objects contain methods that aren't easy to find. 
