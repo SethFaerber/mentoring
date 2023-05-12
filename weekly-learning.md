@@ -6,9 +6,11 @@ This documents the main things I learned this week.
 
 ## Current Week: May 8 - 12
 - Testing
-  - Confidently find existing stubs and apply them as needed. _Hello `stub_debt_snowball`._
+  - Confidently find existing stubs and apply them as needed. _Hello_ `stub_debt_snowball`.
+  - Confidently explain that stubs allow us to fake a response from an external API. 
   - Confidently use and explain what Capybara allows us to do (simulate a user interacting with a rendered component)
   - Confidently get annoyed with Capybara not providing a way to see why a `.has_text` test failed 😆
+    - Throwing in a `binding.pry` helps.
   - Confidently interact with features hidden behind flags and 1:1 Coaching.
     - Enable/disable proper flag
     - `app/models/product_variant/base.rb`
@@ -20,6 +22,9 @@ This documents the main things I learned this week.
       ```
 - Design Patterns
   - Awareness of how a decorator adds functionality to an object by wrapping it to dynamically add methods.
+  - Confidently know why our Baby Steps need to have a decorator build them! It helps to smooth out the nasties in our monkey patch.
+- Refactoring
+  - Confidently identify the need for a refactor of our `BabyStepGoalDecorator` and propose a feasible solution.
 
 ## May 1 - 5
 - Data
