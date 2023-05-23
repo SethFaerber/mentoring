@@ -4,7 +4,45 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
 
-## Current Week: May 8 - 12
+## Current Week: May 22 - 26
+- Dev environment
+  - It's important to document dev env setup.
+- Design Patterns
+  - Confidently evaluate the implementation of a Decorator pattern.
+  - Confidently whiteboard a Decorator pattern.
+  - Confidently refactor a decorator pattern.
+
+## May 15 - 19
+
+- Design Patterns
+  - Confidently explain 
+- Languages
+  - Awareness of some of C#'s distinguishing characteristics
+    - Strongly typed language
+    - OOP
+    - .Net is a framework which can compile many different languages (including and primarily C#) for use on a variety of platforms such as Windows, Linux, and MacOS)
+    - overflow as an issue
+    - variables can be set inside a function and passed back up through the argument and used outside a the function
+```
+static void ReturnVariable(int parameter, out int variable)
+{
+  variable = parameter + 100
+}
+
+static void Call()
+{
+  int variable;
+  ReturnVariable(900, variable)
+  Console.Write("variable is now {0}", variable)
+}
+
+Call() => variable is now 1,000
+```
+  Even though `ReturnVarialbe` is `void` (meaning it returns nothing),
+  the variable can be set within itself and is passed back out.
+
+
+## May 8 - 12
 - Testing
   - Confidently find existing stubs and apply them as needed. _Hello_ `stub_debt_snowball`.
   - Confidently explain that stubs allow us to fake a response from an external API. 
