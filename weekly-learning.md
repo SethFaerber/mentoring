@@ -4,7 +4,19 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
 
-## Current Week: May 22 - 26
+## Current Week: May 30 - June 2
+- Maui
+  - Front end library stuff
+  - Data Binding in XAML can two-way (view<->model) or one way (view<-model), but Maui can detect this so it doesn't need to be manually set.
+  - Network calls.
+  - Platform APIs (battery, notifications, keyboard)
+  - Navigation using the Shell
+  - `ResourceDictionary` and `SetterProperty` make styling standard across the app.
+  - `OnPlatform` can assign custom styles based on the platform it is implemented on.
+- A bunch of other minutiae that that I didn't capture (especially about setting up a machine and an IDE).
+
+
+## May 22 - 26
 - Dev environment
   - It's important to document dev env setup.
 - Design Patterns
