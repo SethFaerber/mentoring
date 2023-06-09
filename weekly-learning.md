@@ -4,7 +4,20 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
 
-## Current Week: May 30 - June 2
+## Current Week: June 5 - 9
+- Team
+  - We need to spend more time together doing:
+    - Decomp
+    - Talking about state management in Xamarin
+- Data
+  - Access local storage and reset it: https://github.com/lampo/ramsey-plus-learn-app/pull/2078/files
+- Environment
+  - Download new Xcode version (cuz emulator was messed up)
+  - Point IDE to Xcode and point Xcode to a correct version of its own app.
+- Xamarin
+  - Recognize and distinguish View and ViewModel code and articulate the purpose for each. Articulate a code-behind.
+
+## May 30 - June 2
 - Maui
   - Front end library stuff
   - Data Binding in XAML can two-way (view<->model) or one way (view<-model), but Maui can detect this so it doesn't need to be manually set.
@@ -16,6 +29,8 @@ This documents the main things I learned this week.
 - A bunch of other minutiae that that I didn't capture (especially about setting up a machine and an IDE).
 
 
+data
+data
 ## May 22 - 26
 - Dev environment
   - It's important to document dev env setup.
