@@ -4,7 +4,38 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
 
-## Current Week: June 5 - 9
+## Current Week: June 26 - 30
+
+*Accelerated Learning Methods*
+1. Working Ramsey my pace (solo, pair as needed) 
+2. Make a problem to work on (personal project, patterns)
+3. Hackerrank
+4. Teach / Present
+
+*Slower Pace*
+5. Reflecting
+6. Shadow (watch)
+7. Researching
+- Priorities
+  - Seth best serves the team by learning code.
+  - Sniper metaphor from Eli (Don't leave the rooftop)
+- Language
+  - C# constructor is a method named after the class
+  - Generic type parameters `class Inventory<T>` allows your class to receive a variety
+  of objects of any kind. The type is specified at (compile time???).
+  - `List<T>` is a generic class which is a collection of elements of various types.
+  It offers handy methods like `Add`, `Remove`, `Sort` and also implements some interfaces
+  like `IEnumerable<T>`, `ICollection<T>`, and `IList<T>`.
+  - Pascal case for method and class names. Camel for parameters and variables.
+- Process
+  - Tech Design EVERY PROBLEM before sitting down to code.
+  - Diagram
+- Pattern
+  - [Lots of Learning Here](https://github.com/lampo/ramsey-plus-budget-app/pull/2479/files)
+    - More than I can recall...and it's not zen right now.
+    - 
+
+## June 5 - 9
 - Team
   - We need to spend more time together doing:
     - Decomp
@@ -28,9 +59,6 @@ This documents the main things I learned this week.
   - `OnPlatform` can assign custom styles based on the platform it is implemented on.
 - A bunch of other minutiae that that I didn't capture (especially about setting up a machine and an IDE).
 
-
-data
-data
 ## May 22 - 26
 - Dev environment
   - It's important to document dev env setup.

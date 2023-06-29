@@ -150,6 +150,10 @@ class PartyDirector
     @party_builder = party_builder
   end
 
+  # method prescribes an order to building. Optionally, you could create an object,
+  # then call each method in any order you want, or not at all with
+  # `HuntingPartyBuilder.new.assign_title.recruit_members.supply_members.assign_mission`
+  # In this case, there is no need for a Director.
   def build_party
     @party_builder.assign_title
     @party_builder.recruit_members
