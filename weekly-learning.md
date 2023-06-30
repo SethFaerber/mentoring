@@ -6,6 +6,11 @@ This documents the main things I learned this week.
 
 ## Current Week: June 26 - 30
 
+- Full Stack
+  - Seed Rails database with `has_and_belongs_to_many` association.
+  - `<select>` to grab a particular item out of a database
+  - render that item in a partial.
+
 *Accelerated Learning Methods*
 1. Working Ramsey my pace (solo, pair as needed) 
 2. Make a problem to work on (personal project, patterns)
@@ -32,8 +37,7 @@ This documents the main things I learned this week.
   - Diagram
 - Pattern
   - [Lots of Learning Here](https://github.com/lampo/ramsey-plus-budget-app/pull/2479/files)
-    - More than I can recall...and it's not zen right now.
-    - 
+  
 
 ## June 5 - 9
 - Team
