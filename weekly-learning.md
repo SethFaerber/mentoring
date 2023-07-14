@@ -4,7 +4,29 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
 
-## Current Week: June 26 - 30
+## Current Week: July 10-14
+- C#
+  - nullable returns from methods or variables is possible if the type declaration is
+  appended with a question mark. This allows the return to be `null` whereas c sharp typically
+  defaults to non-nullable types.
+  ```csharp
+  public string? UserName(name)
+  {
+  return name
+  } 
+  ```
+  in this case, if the user never enters a name, the method will still return, but it will return `null`
+instead of an error.
+- Debugging
+  - Steps to figure out where a bug came from (login failed)
+  - Using breakpoints in IDE to pause code and step through it line by line to see where the error happens.
+- 
+
+## July 3-7
+- Tech Design (two instances)
+  - Helped determine the right path forward.
+
+## June 26 - 30
 
 - Full Stack
   - Seed Rails database with `has_and_belongs_to_many` association.
