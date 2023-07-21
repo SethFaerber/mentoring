@@ -4,7 +4,14 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
 
-## Current Week: July 10-14
+## Current Week: July 17-21
+- RamseyInHouse
+  - I got a JavaScript project pulled down to improve and work on documentation next week.
+  - I learned that Node Modules generally won't run on a local server without Webpack.
+- Design
+  - Don't make direct changes to your Model from the View layer!
+
+## July 10-14
 - C#
   - nullable returns from methods or variables is possible if the type declaration is
   appended with a question mark. This allows the return to be `null` whereas c sharp typically
