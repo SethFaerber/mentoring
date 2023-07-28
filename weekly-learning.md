@@ -4,7 +4,46 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
 
-## Current Week: July 17-21
+## Current Week: July 24-28
+- Over All Learning
+  - Able to wire up a brand new View, Code Behind, and ViewModel in Xamarin.
+  - Able to grasp 100% of View Layer in production code.
+  - Able to grasp 85% of Code Behind in production code.
+  - Able to conceptually grasp 90% of ViewModel in production code, and 50% of its detailed implementation (without diagrams).
+    - *Recognizing that this ViewModel layer needs a diagram was a big win for me. I think it shows where I'm recognizing genuine complexity and identifying tools which can bring clarity*
+- Xamarin
+  - `AbsoluteLayout` was useful in centering an item between other elements without having to use a grid.
+    ```xamarin
+    <AbsoluteLayout VerticalOptions="FillAndExpand">
+        <ffImageLoading:SvgCachedImage
+            AbsoluteLayout.LayoutBounds="0.5, 0.5, 229, 229"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            Source="resource://RamseyPlusApp.Resources.Images.bank-search.svg" />
+    </AbsoluteLayout> 
+    ```
+  - `LayoutBountds` is "horizontalPositionPercentage, verticalPositionPercentage, horizontalSize, verticalSize"
+- Ruby vs C#
+  - Rails:
+  ```ruby
+  x = y = z = "howdy"
+  
+  puts x
+  
+  # => "howdy"
+  ```
+  - C#:
+  ```csharp
+  string x;
+  string y;
+  string z;
+  
+  x = y = z = "Howdy";
+  
+  Console.WriteLine(x);
+  
+  // => "howdy"
+  ```
+## July 17-21
 - RamseyInHouse
   - I got a JavaScript project pulled down to improve and work on documentation next week.
   - I learned that Node Modules generally won't run on a local server without Webpack.

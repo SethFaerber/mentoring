@@ -1,5 +1,22 @@
 # Topics for Discussion
 
+## Xamarin Questions
+```csharp
+protected override void OnAppearing()
+{
+    base.OnAppearing();
+
+    if (this.MerchantListRef.Children.LastOrDefault() is FindYourExtraMerchantView lastMerchantView)
+    {
+        lastMerchantView.IsLineBoxVisible = false;
+    }
+}
+```
+Head-tilting
+- keywords
+- base
+- .Children.LastOrDefault()
+
 ## Ceramics Connect
 
 ### The `percent_complete` Mystery
