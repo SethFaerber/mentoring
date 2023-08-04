@@ -4,7 +4,46 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
 
-## Current Week: July 24-28
+## Current Week: July 31-August 4
+- E$Mobile integration
+  - E$Mobile does not use `<ControlTemplate>` which is really unfortunate. We use that in our testflight app everywhere.
+  Essentially, it means we have to build custom `controls` instead of relying on Xamarin's built-in controls for everything.
+- Optimizely
+  - You can only use a flag name once...so make it REALLY specific.
+- Speak up!
+  - Problems I see are mostly shared problems at this point.
+- C#
+  - Variable declarations in switch/case statements are scoped to the entire switch statement
+    "magically" unless it is enclosed in a block.
+```csharp
+//Scoping to the entire switch statement
+
+switch (someVariable)
+{
+    case 1:
+        int x = 1;
+        break;
+    case 2:
+        x = 2; // This looks up the declaration of x in case 1
+        break;
+}
+
+// Narrowing the scope
+
+switch (someVariable)
+{
+    case 1:
+    {
+    int x = 1;
+    }
+        break;
+    case 2:
+        x = 2; // This will break because x was scoped to case 1 only using a block
+        break;
+}
+```
+
+## July 24-28
 - Over All Learning
   - Able to wire up a brand new View, Code Behind, and ViewModel in Xamarin.
   - Able to grasp 100% of View Layer in production code.
