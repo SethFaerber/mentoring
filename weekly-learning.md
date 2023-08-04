@@ -8,6 +8,9 @@ This documents the main things I learned this week.
 - E$Mobile integration
   - E$Mobile does not use `<ControlTemplate>` which is really unfortunate. We use that in our testflight app everywhere.
   Essentially, it means we have to build custom `controls` instead of relying on Xamarin's built-in controls for everything.
+  - E$Mobile's startup flow is UUUUUUUUGLY XD
+    - It is a giant switch case statement with a bunch of `if` statements inside of it. It runs a page, the page
+    sets itself complete at the end, then runs thru the switch statement again. And so on.
 - Optimizely
   - You can only use a flag name once...so make it REALLY specific.
 - Speak up!
