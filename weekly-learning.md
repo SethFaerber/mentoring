@@ -4,7 +4,65 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
 
-## Current Week: July 31-August 4
+## Current Week: Aug 28 - Sept 1
+- Database in XF app
+  - Installing SQLite in project SQLite.Net-PCL is compatible with Xamarin.iOS.
+  - Surprisingly, initializing the database on app load is smart. It will only initialize once, then ignore subsequent initializations (which would wipe the previous state of the database).
+  - `Path.Combine` is a simple way to build a platform-agnostic path to the database.
+  - `DependencyService.Get<ISQLite>()` is a way to build platform-specific paths to the database.
+  - Dont install deprecated database packages. 😎
+  - Not sure how to reference the database which is pretty perplexing.
+- C#
+  - Awareness: "interface" is like an archetype for a clas. It has "contracts" which are public methods and properties that must be implemented by any class which implements the interface.
+  - Awareness: "contract" is a public method or property which must be implemented by any class which implements the interface. It's called a contract because it is a hard and fast rule which must be carried out for the class to be valid.
+  - Confidence: Build a simple Interface.
+- Xamarin.Forms
+  - SafeArea is set on the page, not on a view... Component lifecycle makes this sticky.
+  - Since SafeArea cannot be set on a view, I had the idea to read the dimensions of the SafeArea and pass it along to set the padding of the video to make it full screen.
+  - With a CDN setup, we are serving our pages as HTML delivered from the database. Xamarin does not like to render images from URLs delivered by HTML. Need a workaround.
+  
+
+## August 21-25
+- C#
+  - Confidence: Creating a new page and wiring it up to a button click.
+  - Confidence: Creating a new modal and wiring it up to a button click.
+  - Confidence: Creating a new ViewModel and wiring it up to a page.
+  - Confidence: Creating a new View and wiring it up to a ViewModel.
+- Teamwork
+  - Confidence: Break down problems in their essential and accidental complexity.
+  - Awareness: Team cohesion and morale is just as important as the "What" concerns.
+  - Awareness: Nailing down the language and terminology is incredibly important, but easy to overlook. I need to drive for clarity on language more.
+
+## August 14-18
+- Indexing Files 
+  - You have to index files in the IDE if you drag/drop them into the folder manually.
+- Xamarin
+  - Confidence: Creating Click Events which lead to new pages and modals.
+  - Confidence: turning on/off navigation bar and tab bar in the Shell.
+  - Confidence: Connecting a ViewModel to a View with a BindingContext (supplied in the code behind).
+  - Confidence: Various UI controls and their properties (Entry, Label, Button, Picker, Modal, etc.)
+
+## August 7-11
+- C
+  - Learned how to build/compile in C. My key takeaways are in /c/c-learning.md
+- Java
+  - IntelliJ IDEA automatically sets up Maven.
+  - Java reminds me of NodeJS.
+- Postman
+  - Sometimes you need an M2M token to access an endpoint. This is because the endpoint expects a machine like the BFF to access it
+  rather than a user.
+- every-dollar-mobile-bff
+- ramsey-plus-smartmoney-api
+  - an api which utilizes a database.
+  - run a local database by running `docker-compose up` in the root directory. (Make sure Rancher is running first).
+  - then run the api by hitting the debug button in IntelliJ.
+  - In Postman
+    - Generate a M2M (machine to machine) token.
+    - Use that toke in the Authorization > Bearer Token field.
+    - test the `/actuator/health` endpoint at `http://localhost:8080/ramsey-plus-smartmoney-api/actuator/health`
+    - test the `/ready` endpoint at `http://localhost:8080/ramsey-plus-smartmoney-api/ready`
+
+## July 31-August 4
 - E$Mobile integration
   - E$Mobile does not use `<ControlTemplate>` which is really unfortunate. We use that in our testflight app everywhere.
   Essentially, it means we have to build custom `controls` instead of relying on Xamarin's built-in controls for everything.
