@@ -4,9 +4,16 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
 
-## Current Week: Aug 28 - Sept 1
+## Current Week: September 18-22
+- Database
+  - async will look for await and run them even if they are in an assignment statement.
+    - `var id = await db.InsertAsync(briefcase);` the method will go to assign id, but runs into the `await`, so it runs the `await`, then comes back and finishes the assignment. So the 
+  - Theres a real gap between my concept and the implementation in Xamarin. It's really convoluted compared to Javascript/React.
+  - I'm also not able to take the basic implementation and turn it into something more complex yet.
+
+## Aug 28 - Sept 1
 - Database in XF app
-  - Installing SQLite in project SQLite.Net-PCL is compatible with Xamarin.iOS.
+  - Installing SQLite in project ~~SQLite.Net-PCL is compatible with Xamarin.iOS.~~ Nope. Needed `sqlite-net-pcl` instead.
   - Surprisingly, initializing the database on app load is smart. It will only initialize once, then ignore subsequent initializations (which would wipe the previous state of the database).
   - `Path.Combine` is a simple way to build a platform-agnostic path to the database.
   - `DependencyService.Get<ISQLite>()` is a way to build platform-specific paths to the database.
