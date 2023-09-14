@@ -4,7 +4,45 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
 
-## Current Week: September 18-22
+## Current Week: September 11-15
+- Database
+  - My db still needed the viewmodel as the go-between. In fact, I didn't really have to do much refactoring
+  of the viewmodel at all. I just had to do a db call when newing up the Items object in the viewmodel.
+  - The database may not be writing to disc which is why it looks like it loses data after rerunning the app after closing.
+  - Found it! 
+
+In the View:
+```csharp
+        private void AddItemToInventory(int selectedOptionIndex)
+        {
+            if (selectedOptionIndex > 0)
+            {
+                Item selectedItem = this.viewModel.Items.FirstOrDefault(item => item.Id == selectedOptionIndex);
+                
+                selectedItem.Status = Item.ItemStatus.Obtained;
+                
+                ItemsViewModel.UpdateItem(selectedItem);
+            }
+        }
+```
+In the ViewModel:
+```csharp
+        public async Task UpdateItem(Item item)
+        {
+            await Database.UpdateItem(item);
+        }
+```
+In the `Database.cs` file:
+```csharp
+        public static async Task UpdateItem(Item item)
+        {
+            await InitializeDb();
+            
+            await dbConnection.UpdateAsync(item);
+        }
+```
+
+## September 4-8
 - Database
   - async will look for await and run them even if they are in an assignment statement.
     - `var id = await db.InsertAsync(briefcase);` the method will go to assign id, but runs into the `await`, so it runs the `await`, then comes back and finishes the assignment. So the 

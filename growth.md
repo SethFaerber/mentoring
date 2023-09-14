@@ -1,12 +1,10 @@
-## Communication
-### Empathetic
-- Empathize with opposing viewpoints - Practicing.
-  - Meeting routine in morning "Green Zone."
-- Demonstrates the ability to mine for conflict - Practicing.
-  - Routinely draws out the difficult conversations that the team dances around such as:
-    - Highlighting the need for decisions around tracking data.
-    - Getting to the bottom of disrupted trust.
-    - Driving for clarity when decisions have not been made.
-## Execution
-### Proactive
-- Pushing for a way to visualize Financial Turnaround
+# Plan for Growth
+
+## Targets and Tasks
+
+| 101<br/>Mine + Unfamiliar                             | 201 <br/>Not Mine + Familiar        | 301<br/>Not Mine + Unfamiliar                                                                          |
+|-------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------------------------------------------|
+| Rails - ceramics/random_tables/v3<br/>Build out more. | Anything SpiderGoat Front-End in E$ | [smartmoney-api](https://gitlab.com/ramsey-solutions/ramsey-plus/ramsey-plus-smartmoney-api)<br/>- ??? |
+| Xamarin - game-kai-workspace<br/>More complex db.     | Anything in SmartDollar             | [RamseyInHouse](https://github.com/RamseyInHouse)<br/>- Extend an existing project.                    |
+|                                                       | ReactNative + Joshua Project API    | Xam/Maui/Rails/ReactNative/React + GPT API + Deploy<br/>- Deployed custom chat interface               |
+|                                                       |                                     |                                                                                                        |
