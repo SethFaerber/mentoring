@@ -8,3 +8,6 @@
 | Xamarin - game-kai-workspace<br/><br/>- More complex db.                                                                 | Anything in SmartDollar                                                          | [RamseyInHouse](https://github.com/RamseyInHouse)<br/><br/>- Extend an existing project.                                            |
 |                                                                                                                     | ReactNative + [Joshua Project API](https://api.joshuaproject.net/)<br/><br/>- Basic Frontend interface for API | Xam/Maui/Rails/ReactNative/React + GPT API + Deploy<br/><br/>- Deployed custom chat interface                                       |
 |                                                                                                                     |                                                                                  | React Native + [Joshua Project API](https://api.joshuaproject.net/) + Deploy<br/><br/>- Combine JP and Google Maps API on Front end |
+
+
+Look at example of E$2.0 documentation as a good example.
