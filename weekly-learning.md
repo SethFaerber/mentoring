@@ -4,14 +4,29 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
 
-## Current Week: September 18-22
+## Current Week: September 25-29
+C#
+- Constructor overloading
+  - Set up multiple constructors for a class, each with different parameters. When you instantiate it, pick which parameters
+  to pass, and it will instantiate with the correct constructor. A use-case for this is returning an object from a network call.
+  The call might result in a successful response or an error. You can set up two constructors, for for success and one for error.
+- Clients
+  - The client makes the network call.
+  - It also handles the response.
+- Learning
+  - When churning, pick up a pen and write something or draw something.
+    - Write down what you know.
+    - Write down what you don't know.
+    - Draw relationships.
+
+## September 18-22
 - Removing Blockers
-  - Given I am generically blocked.
+  - Given I am generically blocked...
     - Check low-level (typos, parameters, imports, logic)
     - Check mid-level (error logs, patterns, dependencies)
       - Look for info outside my IDE (docs, google, ChatGPT)
-    - Reassess what I know and what questions I have (diagram, write)
-    - Ask for insight into the problem (not an answer) from a peer.
+    - Reassess what I know and what questions I have (diagram, write, take a walk)
+    - Explain the problem to a peer to get insight (not an answer) from a peer.
     - Learn what I need to learn to solve the problem.
 
 ## September 11-15
