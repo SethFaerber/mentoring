@@ -4,7 +4,17 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
 
-## Current Week: September 11-15
+## Current Week: September 18-22
+- Removing Blockers
+  - Given I am generically blocked.
+    - Check low-level (typos, parameters, imports, logic)
+    - Check mid-level (error logs, patterns, dependencies)
+      - Look for info outside my IDE (docs, google, ChatGPT)
+    - Reassess what I know and what questions I have (diagram, write)
+    - Ask for insight into the problem (not an answer) from a peer.
+    - Learn what I need to learn to solve the problem.
+
+## September 11-15
 - Database
   - My db still needed the viewmodel as the go-between. In fact, I didn't really have to do much refactoring
   of the viewmodel at all. I just had to do a db call when newing up the Items object in the viewmodel.
