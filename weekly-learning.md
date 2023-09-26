@@ -5,15 +5,32 @@ This documents the main things I learned this week.
 
 
 ## Current Week: September 25-29
-C#
-- Constructor overloading
-  - Set up multiple constructors for a class, each with different parameters. When you instantiate it, pick which parameters
+- C#
+  - Constructor overloading: Set up multiple constructors for a class, each with different parameters. When you instantiate it, pick which parameters
   to pass, and it will instantiate with the correct constructor. A use-case for this is returning an object from a network call.
   The call might result in a successful response or an error. You can set up two constructors, for for success and one for error.
-- Clients
-  - The client makes the network call.
-  - It also handles the response.
-- Learning
+  - Partial Classes: Class definition is broken up into multiple files. Good for separating concerns.
+- Client Setup in EveryDollar ([GitHub design doc](https://github.com/lampo/ramsey-plus-budget-app/issues/2713))
+  - [`dotnet-apiclient-base`](https://github.com/lampo/dotnet-apiclient-base/blob/master/README.md) is a library we use to shape up the HTTP requests and responses to/from APIs.
+  - Client: `UserProfileBasicClient`
+    - 🗣️ Builds the request using the `ApiClient` library. Creates at Task then implements `HttpRequestMessage` builder. Returns result using `result.ToResult()`.
+    - ❓ Why does my intellisense not pick up `SendAsyc` and `ToResultAsync` from `ApiClient.Core`??? 
+    **I hadn't defined the other partial for that class which inherits from `ApiClient`**
+  - Interface: `IUserProfileBasicClient`
+    - 🗣️ Simply mandates that the Client is created with the HTTP request method which takes `CorrelationVector` and `CancellationToken` as parameters. 🖊️ The `UserFinalizeClient` takes in an Auth0Token and passes it the the URI ~which is what I need to do for UserProfileBasic.~ **Actually, I just need AXID, not auth token**
+  - Shared: `UserProfileBasicClient.shared` ???
+    - 🗣️ This defines the other part of the `partial UserProfileBasicClient` class using the `ApiClient` helper methods. Seems like I need to use:
+      - `UserProfileBasicConfig` from my class
+      - `IRetryPolicy` from `ApiClient` to attempt calls again if there are errors.
+      - `IApiClientLogger` from `ApiClient`. Not sure what this does
+      - `IUserAgentAttributesProvider` from `ApiClient`. Not sure what this does
+      - `HttpMessageHandler` from `IDisposeable`.
+      - `Func<string> jwtTokenProvider` not sure if this is needed, but it may be used to get through to a service that requires authorization.
+  - Result: `UserProfileBasicResult`
+    - 🗣️ Creates a Result object using constructor overloading which holds the success, status code, and data returned. ❓ Not sure how this is called or whether the resulting object is used as the primary data source.
+  - Config: `UserProfileBasicConfig`
+    - 🗣️ A standardized configuration for setting hostname, port, default timeout properties.
+- Learning Process
   - When churning, pick up a pen and write something or draw something.
     - Write down what you know.
     - Write down what you don't know.
