@@ -10,17 +10,17 @@ This documents the main things I learned this week.
   to pass, and it will instantiate with the correct constructor. A use-case for this is returning an object from a network call.
   The call might result in a successful response or an error. You can set up two constructors, for for success and one for error.
   - Partial Classes: Class definition is broken up into multiple files. Good for separating concerns.
-- Client Setup in EveryDollar ([GitHub design doc](https://github.com/lampo/ramsey-plus-budget-app/issues/2713))
+- Confidence: Client Setup in EveryDollar ([GitHub design doc](https://github.com/lampo/ramsey-plus-budget-app/issues/2713))
   - [`dotnet-apiclient-base`](https://github.com/lampo/dotnet-apiclient-base/blob/master/README.md) is a library we use to shape up the HTTP requests and responses to/from APIs.
-  - Client: `UserProfileBasicClient`
+  - Client: `BabyStepClient` [Design Doc for this Feature](https://github.com/lampo/ramsey-plus-budget-app/issues/2737)
     - 🗣️ Builds the request using the `ApiClient` library. Creates at Task then implements `HttpRequestMessage` builder. Returns result using `result.ToResult()`.
     - ❓ Why does my intellisense not pick up `SendAsyc` and `ToResultAsync` from `ApiClient.Core`??? 
     **I hadn't defined the other partial for that class which inherits from `ApiClient`**
-  - Interface: `IUserProfileBasicClient`
+  - Interface: `IBabyStepClient`
     - 🗣️ Simply mandates that the Client is created with the HTTP request method which takes `CorrelationVector` and `CancellationToken` as parameters. 🖊️ The `UserFinalizeClient` takes in an Auth0Token and passes it the the URI ~which is what I need to do for UserProfileBasic.~ **Actually, I just need AXID, not auth token**
-  - Shared: `UserProfileBasicClient.shared` ???
+  - Shared: `BabyStepClient.shared` ???
     - 🗣️ This defines the other part of the `partial UserProfileBasicClient` class using the `ApiClient` helper methods. Seems like I need to use:
-      - `UserProfileBasicConfig` from my class
+      - `BabyStepConfig` from my class
       - `IRetryPolicy` from `ApiClient` to attempt calls again if there are errors.
       - `IApiClientLogger` from `ApiClient`. Not sure what this does
       - `IUserAgentAttributesProvider` from `ApiClient`. Not sure what this does
@@ -28,13 +28,14 @@ This documents the main things I learned this week.
       - `Func<string> jwtTokenProvider` not sure if this is needed, but it may be used to get through to a service that requires authorization.
   - Result: `UserProfileBasicResult`
     - 🗣️ Creates a Result object using constructor overloading which holds the success, status code, and data returned. ❓ Not sure how this is called or whether the resulting object is used as the primary data source.
-  - Config: `UserProfileBasicConfig`
+  - Config: `BabyStepConfig`
     - 🗣️ A standardized configuration for setting hostname, port, default timeout properties.
 - Learning Process
-  - When churning, pick up a pen and write something or draw something.
-    - Write down what you know.
-    - Write down what you don't know.
-    - Draw relationships.
+  - When churning, pick up a pen and write something or draw something. I think of it like checking the map of the problem.
+    - Write down where you are, where you've been, and where you want to go.
+    - Where you are: Write down what you know.
+    - Where you've been: Write down what you've learned so far'.
+    - Where you want to go: Write down the minimum requirements to get what you need or all questions you have about that place.
 
 ## September 18-22
 - Removing Blockers
