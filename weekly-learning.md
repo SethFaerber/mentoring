@@ -4,7 +4,18 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
 
-## Current Week: September 25-29
+## Current Week: October 2nd - 6th
+- EveryDollar
+  - Awareness of E$'s startup flow, how the signletons are initialized, and the order that clients are setup. Some cool patterns in there.
+- OOP
+  - In Ruby, attr_readers are about encapsulation. I didn't realize that its essentially wrapping the variable in a method.
+  - Circular dependency is ugly. Not sure exactly how to fix it yet.
+- Workflow
+  - I really broke my rule and tried to quickly do something without understanding it first...trying to implement the client built
+  without taking the time to figure out how the other clients are implemented. I should have taken the time to understand how they are 
+  implemented, and then sit down with my mentor to discuss different approaches to get a quick win out of it.
+
+## September 25-29
 - C#
   - Constructor overloading: Set up multiple constructors for a class, each with different parameters. When you instantiate it, pick which parameters
   to pass, and it will instantiate with the correct constructor. A use-case for this is returning an object from a network call.
