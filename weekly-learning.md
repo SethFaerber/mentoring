@@ -4,9 +4,28 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
 
-## Current Week: October 2nd - 6th
+## Current Week: October 9-13
+- IDE things
+  - Interactive rebasing opens a file which can be overwritten. It runs when saved and closed. Pick/drop/squash/rename.
+  - I can get a commit back even after I've squashed it. Just `git reflog`, find the hash, and check it out. Came in very handy.
+  - Using breakpoints in debugging can allow you to run code (didn't know that) as well as check the values of things.
+  - In IDE, Git>Local History or Git>Git History are so valuable to see how a file has changed or evolved. Life saver.
+- Shipping value
+  - means a lot of different things in different contexts...
+  - For FPU3.0, we want to ship a minimum viable product to the customer as soon as possible to prove value and get data.
+    - Therefore, we just need a quickly built platform, slapped together without writing many tests, not refactoring code into a pristine design
+    so that we can enable speed in tiny R&D wins. We don't expect our platform to be around for a very long time.  
+    The consequence is that the larger the app gets and the more integrated our code becomes, things will start to go 
+    wrong or become to unwieldy. That's an acceptable risk right now because we will not fully flesh out this code. Instead, 
+    it is just enough to gain what we need for a more stable product.
+  - In SmartDollar, we want to ship new finalized features as fast as possible in response to user feedback.
+    - This means we want to take the time to make sure our platform is rock solid, so that we can build new features quickly.
+    To make sure our platform is solid, there is always refactoring, tests, and documentation. We intend for our platform to
+    be around for a very long time.
+
+## October 2nd - 6th
 - EveryDollar
-  - Awareness of E$'s startup flow, how the signletons are initialized, and the order that clients are setup. Some cool patterns in there.
+  - Awareness of E$'s startup flow, how the singletons are initialized, and the order that clients are setup. Some cool patterns in there.
 - OOP
   - In Ruby, attr_readers are about encapsulation. I didn't realize that its essentially wrapping the variable in a method.
   - Circular dependency is ugly. Not sure exactly how to fix it yet.
@@ -436,6 +455,8 @@ Call() => variable is now 1,000
       - `git rebase -i HEAD~number_of_commits_plus_one` `-i` opens IDE to edit commits. `f` to squash a commit into another. `r` ???
       - `git rebase --continue` if needed
       - `git push --force` to force the newly squshed local commit to overwrite the remote.
+      - "vim" r character replace.
+      - ![img.png](img.png)
 - Migrations
   - Confidently create release flag and accompanying `features.yml` (which automatically sets up flags for new devs)
 - Testing
