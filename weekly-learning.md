@@ -3,8 +3,22 @@ This documents the main things I learned this week.
 - "Confidence" means that I moved into a deeper understanding and consistent implementation in an area.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
+## Current Week: October 16-20
+- Debugging
+  - Successfully finding the zone a bug might be by thinking about it.
+- Cross-team collaboration
+  - Connecting with Av shed light on problems I was dealing with.
+- Strong vs. Dynamic type
+  - I ran into some bugs this week that had to do with C#'s strong typing. I see how important it is for a language to require strong typing.
+  However, I kept wondering if Ruby would have put me through worse pain or whether it would have been easier or harder to debug because of its dynamic nature.
+  Jury is still out on this, but it really made me wonder. 🤔
+- Work
+  - Discovery on `created_at` date for users. I met with Av, and captured our best ways forward here: https://github.com/lampo/ramsey-plus-budget-app/issues/2826. We probably have to work with Jenny Lee on what she actually wants to show users and how committed we are to sorting that out.
+  - Ceramics – Rebuild the BabyStepClient from scratch. Luke thought I could do this in 2 hours…and he was right much to my surprise! 😮  I got the core client together in 2 hours. I spent another 4 hours building a bare bones implementation and debugging my code…most of that 4 hours was watching my emulator reload. 😆
+    - Branch here: https://github.com/lampo/ramsey-plus-budget-app/pull/2851
+    - Tech Doc: https://github.com/lampo/ramsey-plus-budget-app/issues/2831
 
-## Current Week: October 9-13
+## October 9-13
 - IDE things
   - Interactive rebasing opens a file which can be overwritten. It runs when saved and closed. Pick/drop/squash/rename.
   - I can get a commit back even after I've squashed it. Just `git reflog`, find the hash, and check it out. Came in very handy.
