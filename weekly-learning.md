@@ -3,12 +3,6 @@ This documents the main things I learned this week.
 - "Confidence" means that I moved into a deeper understanding and consistent implementation in an area.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
-<details>
-  <summary>Click here</summary>
-    Here are the details.
-</details>
-
-
 ## Current Week: October 30 - November 3
 - Thinking
   - Bloom's Higher Order Thinking
