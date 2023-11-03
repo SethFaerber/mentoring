@@ -3,7 +3,52 @@ This documents the main things I learned this week.
 - "Confidence" means that I moved into a deeper understanding and consistent implementation in an area.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
-## Current Week: October 16-20
+## Current Week: October 30 - November 3
+- CS
+  - Big O: How efficent an algo is. It refers only to the biggest, most complex factor in the algo.
+  For example: 3x^2 + 5x + 3. Big O is O(n^2) because the x^2 is the biggest factor.
+  - <details>
+<summary>Different Algo's I Paid Attention TO</summary>
+    - Bubble Sort
+      - Compares pairs of neighboring entries and moves them down toward the right. Then iterates again, and again all the 
+      way through until no more swaps can be made meaning the list is sorted.
+    - Insertion Sort
+      - Begins with an array of one entry which means it is sorted. Looks at the next item and compares it to the array 
+      right-most first and inserts it into place.
+    - Merge Sort
+      - All items are pulled into arrays containing a single item, then they at stitched back together in order.
+      This helps with the worst case scenario where the starting array is in half disorder to reverse order. JavaScript.sort
+      uses merge sort under the hood.
+    - Quick Sort
+      - A pivot (final item) is chosen. Remaining items are split in the middle to two arrays.
+    - Radix Sort
+      - Sorts by the least significant digit first, then the next, and so on (ones place then tens and so on). Never compares
+      any item to any other item.
+    - Binary Search
+      - For a sorted array, split down the middle. Check left and right then split again.
+  </details>
+- Command Line
+  - grep and pipe
+    - `grep` searches for a string in a file. `grep "string" .` searches recursively in the current directory.
+    - `|` pipes the output of one command into the input of another. `grep "string" . | grep "another string"` 
+    - use case: `git branch | grep "string"` to find a branch with a particular string in it.
+  - Came up with a cool cd/search thingy.
+- Pipelines
+  - No need to lint in QA since that's done in our PR pipeline.
+  - Android typically packages with APK, but we are using AAB which is a newer format. Faster and adds features like Quick Install.
+  - Our QA pipeline takes about 40 mins to build which means QA has to wait around for something to test. Optimizing this is important.
+  One approach is to build a stripped down essentials-only version for QA, the when it's approved roll it up to a pre-prod build.
+  - Mobile apps require a full application build to deploy. This is different from web apps which can be deployed in pieces.
+- Testing
+  - You don't write tests for packages you're working with unless you want to see how they work to ensure everything goes the way you think it should.
+  Then you should probably remove the tests.
+- Thinking
+  - "There hast to be a better way to do this. What tools do I have that might solve this? How can I combine those tools in novel ways to solve this."
+  - "This code has a purpose. Where is it doing something that it extraneous to its purpose? How can I separate those concerns to create an optimally portable product.
+  What is the tradeoff for refactoring this? Does the refactor introduce more complexity than it solves? Who has better 
+  insight into this complexity problem and can speak to it."
+
+## October 16-20
 - Debugging
   - Successfully finding the zone a bug might be by thinking about it.
 - Cross-team collaboration
