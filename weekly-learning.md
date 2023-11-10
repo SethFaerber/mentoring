@@ -3,7 +3,124 @@ This documents the main things I learned this week.
 - "Confidence" means that I moved into a deeper understanding and consistent implementation in an area.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
-## Current Week: October 30 - November 3
+## Current Week: November 6 - 10
+- Xamarin
+  - Custom Controls
+    - Built two custom controls. One more complex than the other.
+    - XAML supplies a value to `Animal` like `Animal="Frog"`, and they get a card with the name and animal image.
+
+![img_2.png](img_2.png)
+![img_3.png](img_3.png)
+```csharp
+namespace xammy
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class AnimalControl
+    {
+        public static readonly BindableProperty AnimalProperty = BindableProperty.Create(
+            nameof(Animal),
+            typeof(string),
+            typeof(AnimalControl),
+            string.Empty
+        );
+        
+        public static readonly BindableProperty AnimalUriProperty = BindableProperty.Create(
+            nameof(AnimalUri),
+            typeof(string),
+            typeof(AnimalControl),
+            string.Empty
+        );
+        
+        public string Animal
+        {
+            get
+            {
+                switch ((string)this.GetValue(AnimalProperty))
+                {
+                    case "Frog":
+                    {
+                        this.SetValue(AnimalUriProperty,
+                            "https://i.etsystatic.com/isla/910f97/34229353/isla_fullxfull.34229353_lywq3bgq.jpg?version=0");
+                    }
+                        break;
+                    case "Cat":
+                    {
+                        this.SetValue(AnimalUriProperty,
+                            "https://www.dailypaws.com/thmb/nwNtJnMRSJ33nbdzrdsRwSJHMfU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/anime-cat-names-1204854078-2000-d34f509ae54943d8b78cfb4bf9ba0678.jpg");
+                    }
+                        break;
+                    default:
+                    {
+                        return null;
+                    }
+                        break;
+                }
+                return (string)this.GetValue(AnimalProperty);
+            }
+            set
+            {
+                this.SetValue(AnimalProperty, value);
+            }
+        }
+
+        public string AnimalUri
+        {
+            get => (string)this.GetValue(AnimalUriProperty);
+            set => this.SetValue(AnimalUriProperty, value);
+        }
+        
+        public AnimalControl()
+        {
+            InitializeComponent();
+        }
+    }
+}
+```
+  - This is NOT the ideal solution because `AnimalUri` is publicly exposed. There are ways around this supplied by Xamarin,
+but I didn't get them working.
+
+- MVVM
+  - The video player does not need a model. A model exists as a store or state holder for whatever uses it.
+  The video player does not need this because whatever Model (AdvertisingVideo, TutorialVideo, VideoModality)
+  is associated with the video player already has its own model. The video player just needs to read and populate
+  a couple things from those models, then set its own properties like Uri to play the video).
+  - `BindableProperty` allows you to create your own properties. ~~It's very "library-ish."~~ ACTUALLY, the pattern
+  is firmly set in creating a custom control in Xamarin. Even `Button` elements have `BindableProperty` properties.
+  - `base` allows you to call a method or access a property from a base class.
+- Build
+  - Local build was bugged in xammarin. I had to delete the `bin` and `obj` folders in the project directory. These
+  folders can hold onto old build data which can cause problems.
+- Progress Bar
+```csharp
+protected override void OnPropertyChanged(string propertyName = null)
+    {
+      if (
+        propertyName == TotalProgressProperty.PropertyName
+        || propertyName == CurrentProgressProperty.PropertyName
+      )
+      {
+        base.OnPropertyChanged(nameof(this.Progress));
+      }
+
+      base.OnPropertyChanged(propertyName);
+    }
+
+    public double Progress =>
+      this.TotalProgress == 0 ? 0d : (double)this.CurrentProgress / this.TotalProgress;
+```
+- CSharp
+  - Casting: `(int)someDouble` will cast a double to an int. Type coercion is different because it happens automatically like in JavaScript
+    ("32" * 2 = 64).
+  ```csharp
+      public bool IsProgressVisible
+    {
+      get => (bool)this.GetValue(IsProgressVisibleProperty);
+      set => this.SetValue(IsProgressVisibleProperty, value);
+    } 
+  ```
+    - Here, `(bool)` is cast because the property may actually be `null`.
+
+### October 30 - November 3
 - Thinking
   - Bloom's Higher Order Thinking
     - Synthesize - Solved a need I had by writing a terminal script. "Synthesizing" (Bloom's) serval concepts and tools into something new and effective!
