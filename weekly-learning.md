@@ -3,7 +3,16 @@ This documents the main things I learned this week.
 - "Confidence" means that I moved into a deeper understanding and consistent implementation in an area.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
-## Current Week: November 6 - 10
+## Current Week: November 13 - 17
+- Resourceful
+  - Figured out how to squash and merge one local branch into another with merge conflicts.
+  - Figured out how to get a test suite running in a c# project that was targeting the wrong framework.
+- Custom Control
+- Time Management
+  - "Good Ideas" can be bad ideas if they cost too much.
+  - Get distracted, but don't get distracted from your distraction.
+
+## November 6 - 10
 - Xamarin
   - Custom Controls
     - Built two custom controls. One more complex than the other.
@@ -120,7 +129,8 @@ protected override void OnPropertyChanged(string propertyName = null)
   ```
     - Here, `(bool)` is cast because the property may actually be `null`.
 
-### October 30 - November 3
+## October 30 - November 3
+
 - Thinking
   - Bloom's Higher Order Thinking
     - Synthesize - Solved a need I had by writing a terminal script. "Synthesizing" (Bloom's) serval concepts and tools into something new and effective!
@@ -661,6 +671,22 @@ Call() => variable is now 1,000
       - `git push --force` to force the newly squshed local commit to overwrite the remote.
       - "vim" r character replace.
       - ![img.png](img.png)
+    - Let's say you have a local branch and want to merge it into your local main. 
+      - *** THIS IS BAD FOR PROD! ONLY TINY LOCAL PROJECTS ***
+      - Squash all previous commits together on the working branch.
+        - `git rebase -i HEAD~number_of_commits_plus_one`
+        - `squash` for every newer commit that you want to lay on top of the previous one. So if you want all the commits,
+        it will look like:
+        - pick xxxxxxxx My first commit on this branch
+        - squash xxxxxxxx My second commit on this branch to be laid on top of the original
+        - squash xxxxxxxx My third commit on this branch to be laid on top of the original
+      - Set the working branch to the head of the main branch.
+        - `git rebase main -i`
+        - Conflicts will show up in the IDE. Fix them, save and close.
+      - Now your branch is set at the head, and main can fastforward to it
+        - `git checkout main`
+        - `git merge working_branch`
+      - Now `main` has received the entire working branch.
 - Migrations
   - Confidently create release flag and accompanying `features.yml` (which automatically sets up flags for new devs)
 - Testing
