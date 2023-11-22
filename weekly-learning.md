@@ -15,6 +15,7 @@ This documents the main things I learned this week.
   My gut told me it would be faster to survey other possibilities than to go on a rabbit hunt in the code. I'm glad I
   explored other options because it was a problem so outside the box that I would have never found it in the code.
 
+### Thinking Process
 The video player was playing videos properly on iOS, while Android only played visuals with no audio. This is how I approached it:
 1. Considered possible reasons.
   * File Type: `m3u8` file type doesn't play nice with Android. I'd overheard two team members discussing the problems with `m3u8` files a couple weeks ago.
