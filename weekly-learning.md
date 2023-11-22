@@ -3,7 +3,43 @@ This documents the main things I learned this week.
 - "Confidence" means that I moved into a deeper understanding and consistent implementation in an area.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
-## Current Week: November 13 - 17
+## Current Week: November 20 - 24
+- Xamarin
+  - Page and component lifecycles
+- Time Estimation
+  - Best estimate times three. Proves true.
+- Thinking through Value Tradeoffs in Debugging
+  - During debugging of a video player I was refactoring, I had to make some tough judgement calls about which route
+  to take when trying to figure it out. Below, I'll recap the whole thinking process which essentially boiled down to:
+  "This code looks right, so I either do exploratory debugging, or explore other reasons outside of my code." I'm glad 
+  My gut told me it would be faster to survey other possibilities than to go on a rabbit hunt in the code. I'm glad I
+  explored other options because it was a problem so outside the box that I would have never found it in the code.
+
+The video player was playing videos properly on iOS, while Android only played visuals with no audio. This is how I approached it:
+1. Considered possible reasons.
+  * File Type: `m3u8` file type doesn't play nice with Android. I'd overheard two team members discussing the problems with `m3u8` files a couple weeks ago.
+  * Streaming Service: streaming from that particular cms doesn't play nice with Android
+  * Encoding: encoding of the particular video I picked doesn't play nice with Android.
+  * My Code: My Android player is set up wrong in the code (maybe the async functions are out of order or something). 
+2. I did a cursory investigation on StackOverflow and Google to see if anyone else ran into this. Several people had, but no definitive solutions were given.
+3. My code looked good, so I had to choose between:
+  * Deep dive into code on a rabbit hunt.
+  * Ask a team member if the `m3u8` file is the problem
+4. It was much faster to ask Dreiss about `m3u8` files than to go on a rabbit hunt.
+5.  He said it was unlikely a problem with the `m3u8` file type.
+6.  I then had to choose between:
+  * Deep dive into code on a rabbit hunt.
+  * Try out different file types and streaming services to see if they fixed the problem, so I could rule out my code as the issue.
+7. I found several other links in different file types, and they all showed video with no audio.
+8. I took a cursory re-look at my code, and everything seemed fine.
+9. I then had to choose:
+  * Deep dive into the code on a rabbit hunt.
+  * Brainstorm some other possible problems.
+10. I opened up my mind to other options, and it almost immediately occurred to me that the emulator itself might be the problem.
+11. To test this, I would need to run the app on a physical device.
+12. I got one set up, and the video and audio played just fine. The problem was with the emulator, not the code!
+
+## November 13 - 17
 - Resourceful
   - Figured out how to squash and merge one local branch into another with merge conflicts.
   - Figured out how to get a test suite running in a c# project that was targeting the wrong framework.
