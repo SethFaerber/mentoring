@@ -3,7 +3,30 @@ This documents the main things I learned this week.
 - "Confidence" means that I moved into a deeper understanding and consistent implementation in an area.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
-## Current Week: November 20 - 24
+## Current Week: December 4 - 8
+- Bigger Problems
+  - I recognize that the "big stumpers" for me are "normal stumpers" for the team rather than being "no brainers" for the team.
+  - The level of the problem I'm able to work on is much higher than it used to be and is aligning with the team.
+- Lifecycle Events
+  - Better to separate concerns by using lifecycle events rather than using a single event handler for multiple events. Too much to keep track of.
+  - Fix one problem at a time. Don't try to get two-for-one... That's very unscientific. 👨‍🔬
+  - For example, don't new up a component in the middle of a propertyChanged event which sets one of its properties. New it up and in separate method, and set the property in an OnPropertyChanged event.
+- There's a Xamarin/iPhone routing bug. Just have to workaround it.
+- Background Tasks
+  - iPhone
+    - [Apple BGTasks](https://developer.apple.com/videos/play/wwdc2019/707)
+  - Android
+  - .NET
+    - [Options for .NET and Android](https://medium.com/nerd-for-tech/background-work-in-xamarin-forms-part-1-xamarin-android-63f629e73f9)
+    - ![img_4.png](img_4.png)
+
+## November 27 - December 1
+- Error Handling
+  - try/catch
+  - Event handlers
+  - Lifecycle events (Page and ContentView)
+
+## November 20 - 24
 - Xamarin
   - Page and component lifecycles
 - Time Estimation
