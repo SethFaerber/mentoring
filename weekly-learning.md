@@ -3,7 +3,17 @@ This documents the main things I learned this week.
 - "Confidence" means that I moved into a deeper understanding and consistent implementation in an area.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
-## Current Week: December 4 - 8
+## Current Week: December 11-15
+- Debugging
+  - I found an angle of a bug that I don't think anyone would have noticed. It will save a lot of time for whoever tries to fix it.
+  - The bug only happens 3%-5% of the time when tests are run. A random test will fail. Since it only happens very rarely, its easy to think that
+  the problem is with the test that failed. I discovered through running over and over that the bug actually causes a random test to fail.
+  It propbably has more to do with a shared dependency.
+  - I was able to document it [thoroughly here](https://github.com/lampo/ramsey-plus-budget-app/issues/3063), knowing I'm setting the next guy up for success.
+- Building
+  - E$ prefers commands rather than Tapped property becuase the command has a lot of useful behavior on it (like restricting double clicks). 
+
+## December 4 - 8
 - Bigger Problems
   - I recognize that the "big stumpers" for me are "normal stumpers" for the team rather than being "no brainers" for the team.
   - The level of the problem I'm able to work on is much higher than it used to be and is aligning with the team.
