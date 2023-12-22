@@ -3,12 +3,30 @@ This documents the main things I learned this week.
 - "Confidence" means that I moved into a deeper understanding and consistent implementation in an area.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
-## Current Week: December 11-15
+## Current Week: December 18-22
+- ETL data processing: Used to consolidate data from multiple sources into a single source. `User-Basic-Profile` needs us
+to do some ETL in SmartDollar with our customer data. We need to make sure the keys and values we send match what they expect.
+  - Extract: Grab the data from somewhere
+  - Transform: Change the data into the format you need
+  - Load: Put it in a final destination
+- Debugging Rails
+  - binding.pry
+- Artifactory
+  - Creates an authoritative source for all packages and dependencies in projects. It ensures that all team members are working
+  with the same tools and versions to speed up development and deployment in a CI/CD pipeline.
+  - I was having trouble running `bundle install` because my Artifactory secret token had expired. Refreshed it and applied it.
+- Set up environment
+  - Found docs to set up SD.
+  - Troubleshot Artifactory token issue and command line config.
+  - Troubleshot a problem with local database reseed code in SmartDollar (its been broken for a while, but went unnoticed).
+  [Fixed it with an MR](https://gitlab.com/ramsey-solutions/ramsey-plus/smartdollar/smartdollar-app/-/merge_requests/4292).
+
+## December 11-15
 - Debugging
   - I found an angle of a bug that I don't think anyone would have noticed. It will save a lot of time for whoever tries to fix it.
   - The bug only happens 3%-5% of the time when tests are run. A random test will fail. Since it only happens very rarely, its easy to think that
   the problem is with the test that failed. I discovered through running over and over that the bug actually causes a random test to fail.
-  It propbably has more to do with a shared dependency.
+  It probably has more to do with a shared dependency.
   - I was able to document it [thoroughly here](https://github.com/lampo/ramsey-plus-budget-app/issues/3063), knowing I'm setting the next guy up for success.
 - Building
   - E$ prefers commands rather than Tapped property becuase the command has a lot of useful behavior on it (like restricting double clicks). 
