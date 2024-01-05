@@ -3,7 +3,56 @@ This documents the main things I learned this week.
 - "Confidence" means that I moved into a deeper understanding and consistent implementation in an area.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
-## Current Week: December 18-22
+## Current Week: January 1-5
+DB
+- I had a bunch of failing tests. Seems my local db was corrupted somehow. reset with `RAILS_ENV=test rails db:reset`
+Model
+- Model does CRUD operations on the db. 
+- Model name is singular because it represents the single instantiated object.
+- Provides access to fields in the db through accessor methods.
+- Maps database rows into objects.
+View Helpers
+- Helps to keep view logic out of the main view file.
+- Methods written in Ruby which can be called in the view. (if x then y)
+Discord+GPT Bot
+- Set up a Discord server and a bot.
+- node runs a server.
+- .env used for security. Stores tokens locally for development purposes, but .gitignore prevents them from being pushed
+to GitHub where they could be publicly visible.
+- Slash commands are specified then run the code associated with them. They need to be registered in the `deploy-commands.js` file
+and then run in node to be sent to Discord.
+- Substantive changes to a command should prompt you to run `node deploy-commands.js` to update the command in Discord.
+- `.addStringOption` is used to add a string field in the Discord chat box. The user types and it is returned 
+as the `interaction.options.getString('name')` where 'name' is the parameter of `option.SetName()`
+Ruby
+- `DateTime.parse(string)` can de-convert strings into DateTime objects.
+- Module is portable so we can rip it out later...or it use it elsewhere 😜
+- 
+RSpec in SmartDollar
+- `include_context` has a bunch of really useful shortcuts for stubbing information like `enrolled_user` and `group_coaching`
+- Stub requests just look like requests in the `before do` block.
+- stubbing `DateTime.now` is important so the test never changes... `allow(DateTime).to receive(:now).and_return(DateTime.new(2022, 2, 8))`
+Segment
+- Segment tracks user behavior in the app.
+
+![img_5.png](img_5.png) ![img_6.png](img_6.png)
+Optimizely (reference)
+- need access
+- experiment directory.
+- create a flag for the experiment.
+- got to optimizely, and create new flag.
+- match name and key.
+- auto creates in prod test and qa env.
+- build the rule ADD RULE (a/b test usually)
+- percentage usually 50/50.
+- select metrics, add tracking code to all versions of your trigger both on and off.
+- save ruleset
+- copy rules from elsewhere.
+- leave OFF in PROD until its time for Travis to turn it on.
+- Turn on in qa and test for development and testing. (Takes a few minutes to start working).
+- in Code. wrap your element in an if statement to turn on Optimizely.
+
+## December 18-22
 - ETL data processing: Used to consolidate data from multiple sources into a single source. `User-Basic-Profile` needs us
 to do some ETL in SmartDollar with our customer data. We need to make sure the keys and values we send match what they expect.
   - Extract: Grab the data from somewhere
