@@ -3,7 +3,134 @@ This documents the main things I learned this week.
 - "Confidence" means that I moved into a deeper understanding and consistent implementation in an area.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
-## Current Week: January 1-5
+## Current Week: Jan 29 - Feb 2
+- Dynatrace
+  - Learned and wrote a [comprehensive tutorial](https://devtools-portal.ramseysolutions.net/docs/default/component/platform-engineering-documentation/dynatrace/emails_from_logs_tutorial/) 
+  on how to set up a metric in Dynatrace from logs and use it to create an email alert.
+  - Saw the business value of having a full-time Dynatrace dude on hand.
+
+## January 15-19
+- JavaScript
+  - Array stuff for my bot to parse responses based on beginning and ends of code blocks
+```js
+async function parseAndReply(response, message) {
+    let startingIndex = 0;
+    let indexOfCodeBlockOpen = 0;
+    let indexOfCodeBlockClose = 0;
+    const backticks = "```"
+    // returns -1 if no index found)
+    while(response.indexOf(backticks, startingIndex) > 0){
+
+        indexOfCodeBlockOpen = response.indexOf(backticks, startingIndex);
+        // Adds response before the code block begins.
+        await message.reply(response.slice(startingIndex, indexOfCodeBlockOpen));
+            
+        indexOfCodeBlockClose = response.indexOf(backticks, (indexOfCodeBlockOpen + 1)) + 2;
+        
+        await message.reply(response.slice(indexOfCodeBlockOpen, indexOfCodeBlockClose + 1));
+        
+        startingIndex = indexOfCodeBlockClose + 3;
+        
+        console.log("Starting Index: ", startingIndex);
+    } 
+    console.log("block open", response.indexOf(backticks, startingIndex))
+
+    await message.reply(response.slice(startingIndex, response.length));
+}
+```
+
+## Jan 8-12
+- Red Dot Notification Logic
+  - Tests are so important! I wrote my tests when it started getting too complicated to keep track of. Had failing tests
+  which actually highlighted gaps in my understanding of the code base and helped to to strengthen my code.
+  - Feature Tests break if network calls are not stubbed properly. Our side nav items all render for many feature tests.
+  Because my red do requires a network call, it broke like 80 feature tests. I had to stub the network call in the `before do` block 
+  for all 80 of those tests. This is a code smell.
+  - Logic was great!
+```ruby
+module Coaching
+  class Indicator
+    def initialize(target_date = DateTime.now)
+      @target_date = target_date
+    end
+
+    attr_reader :target_date
+
+    def show_indicator?
+      return false if user_has_one_on_one? || indicator_cleared?
+
+      optimizely_enabled? && valid_window_to_show_indicator?
+    end
+
+    def set_cleared_coaching_indicator_state
+      return unless valid_window_to_show_indicator? || next_event_exists?
+
+      if event_last_seen.nil?
+        create_cleared_coaching_indicator_state
+      else
+        update_event_last_seen
+      end
+    end
+
+  private
+
+    def user_has_one_on_one?
+      ProductVariant.current.can_access_one_on_one_coaching?
+    end
+
+    def valid_window_to_show_indicator?
+      less_than_48_hours? || event_happening?
+    end
+
+    def less_than_48_hours?
+      next_group_coaching_start_time - 48.hour < target_date
+    end
+
+    def event_happening?
+      next_group_coaching_start_time <= target_date && target_date < next_group_coaching_end_time
+    end
+
+    def next_group_coaching_start_time
+      DateTime.parse(Coaching::Events.next.starts_at)
+    end
+
+    def next_group_coaching_end_time
+      DateTime.parse(Coaching::Events.next.ends_at)
+    end
+
+    def indicator_cleared?
+      return false if event_last_seen.nil?
+
+      event_last_seen.event_id == Coaching::Events.next.id
+    end
+
+    def event_last_seen
+      ClearedCoachingIndicatorStates.find_by(user_external_id: User.current_user.external_id)
+    end
+
+    def create_cleared_coaching_indicator_state
+      ClearedCoachingIndicatorStates.create(
+        user_external_id: User.current_user.external_id,
+        event_id: Coaching::Events.next.id
+      )
+    end
+
+    def update_event_last_seen
+      event_last_seen.update(event_id: Coaching::Events.next.id)
+    end
+
+    def next_event_exists?
+      Coaching::Events.next.present?
+    end
+
+    def optimizely_enabled?
+      Experiment::CoachingSideNavNotificationDot.enabled?
+    end
+  end
+end
+```
+
+## January 1-5
 DB
 - I had a bunch of failing tests. Seems my local db was corrupted somehow. reset with `RAILS_ENV=test rails db:reset`
 
