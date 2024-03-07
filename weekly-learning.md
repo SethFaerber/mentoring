@@ -3,7 +3,47 @@ This documents the main things I learned this week.
 - "Confidence" means that I moved into a deeper understanding and consistent implementation in an area.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
-## Current Week: Jan 29 - Feb 2
+## Current Week: Mar 4 - 8
+- Testing
+  - Feature Tests tests behavior on a page like clicking a button and seeing if the page changes.
+  - System Tests are very similar. They are where Ruby 5 is going. They are more versatile and can test more things like JavaScript.
+  - It is easy to spot Feature and System tests by seeing `visit` with an endpoint, `click_on` with a button, or `fill_in` with a form,
+  and `expect(page).to have_content` with a string.
+  - A bad use for a feature test is testing the content on a page and that's it. It doesn't make sense to spin up a whole page just to assert
+  that something shows up. Better to test the behavior on the page and whether things change based on the behavior.
+  - Unit tests are easy to spot because they instantiate a class and test a method.
+- 
+
+## Feb 26 - Mar 1
+- SmartDollar QA is live and publicly accessible at https://qa.smartdollar.com/app/dashboard
+- Mobile features must be done with great care.
+- If you have a gut feeling, speak up and make sure there's a contingency plan. It happened this week when we were going
+to make a "quick 10 min change," but I felt it could go sideways. I spoke up and we agreed to merge janky code if things
+went sideways. They did, and it was raised, "No no, we can fix it quick," but thankfully, we had a plan to roll it back 
+and make a bug ticket. it worked out.
+- The team moves slower on some things than I wish they would. When I'm in slack time, I want to fix little UI bugs. But it
+has to go through the whole review process. So I feel trapped in having to find something else to do. 
+- SOLID
+  - S (Single Responsibility Principle) - A class should have only one reason to change...meaning, if you have to change a class
+  for some reason, you only have to change one thing about it because it only does one thing. The anti-pattern here is like
+  the User `God Object` we have in SmartDollar which does too many things.
+  - O (Open/Closed Principle) - A class should be open for extension, but closed for modification. Like a TTRPG, the rules are closed
+  for modification, but the adventure is open for extension. So for example, an Adventure class should be closed for modification,
+  but a special subclass like `DungeonAdvanture < Adventure` is valid. It inherits from Adventure and extends it. It does not modify
+  the `Adventure` class, it just adds to it to extend it's functionality.
+  - L (Liskov Substitution Principle) - subclass objects should be able to be substituted for base class objects without issue.
+  For example, if I want to call `levelUp` from a `Character` class, I should be able to do `Theif.levelUp` and `Bard.levelUp` just
+  as easily as `Character.levelUp` because `Theif < Character` and `Bard < Character`. 
+  - I (Interface Segregation Principle) - A class should not be forced to implement an interface it doesn't use.
+  
+
+## Feb 5th - 9th
+- asdf
+  - asdf is a CLI tool which manages multiple runtime versions. It's like nvm, but for multiple languages. when `asdf install` is run,
+  it looks for a `.tool-versions` file in the current directory and installs the versions of the tools listed in it.
+- 
+
+## Jan 29 - Feb 2
 - Dynatrace
   - Learned and wrote a [comprehensive tutorial](https://devtools-portal.ramseysolutions.net/docs/default/component/platform-engineering-documentation/dynatrace/emails_from_logs_tutorial/) 
   on how to set up a metric in Dynatrace from logs and use it to create an email alert.
