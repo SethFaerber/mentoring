@@ -3,7 +3,49 @@ This documents the main things I learned this week.
 - "Confidence" means that I moved into a deeper understanding and consistent implementation in an area.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
-## Current Week: Mar 4 - 8
+## Current Week:Apr 15- 19
+- Develop branch
+  - Merge your branch into the develop branch to test on the web
+  - `git checkout master`
+  - `git pull`
+  - `git checkout develop`
+  - `git reset --hard origin/master` To force parity of develop with master
+  - `git rebase your-branch`
+  - `git push --force`
+  - Let it build
+- Building
+  - Tailwind
+    - Tailwind needs to be run every time a change happens to your css.
+    - It builds your css file by scanning your project and generating the css for it.
+    - This can be done with the command line `npx tailwindcss -i ./src/input.css -o ./src/output.css"`
+    - This script can also be aliased in the package.json:
+    ```json
+    "scripts": {
+      "test": "jest",
+      "build": "npx tailwindcss -i ./src/input.css -o ./src/output.css",
+    ```
+    - Gotta make sure its looking at all your files though (finicky) in `tailwind.config.js`
+    ```js
+    /** @type {import('tailwindcss').Config} */
+    export default {
+      content: [
+        "./src/**/*.html",
+        "./src/**/*.js"
+      ],
+      theme: {
+          extend: {},
+      },
+      plugins: [],
+    }
+    ```
+  - Nodemon
+    - The constant `crtl + c` `node .` every time I make a change sucks.
+    - I can use `nodemon` to watch for changes and restart the server automatically.
+  - Running it all together
+    - I want to automatically rebuild my css and and restart my server when I make changes.
+    - `package.json` script: `"start": "nodemon --watch src --ext js,html,css --exec \"npm run build && node .\""`
+
+## Mar 4 - 8
 - Testing
   - Feature Tests tests behavior on a page like clicking a button and seeing if the page changes.
   - System Tests are very similar. They are where Ruby 5 is going. They are more versatile and can test more things like JavaScript.
@@ -12,7 +54,36 @@ This documents the main things I learned this week.
   - A bad use for a feature test is testing the content on a page and that's it. It doesn't make sense to spin up a whole page just to assert
   that something shows up. Better to test the behavior on the page and whether things change based on the behavior.
   - Unit tests are easy to spot because they instantiate a class and test a method.
-- 
+- Deep Linking, OneLink, and other stuff. (Deep Linking is a way to link to a specific page in an app. It's like a URL for an app.)
+  - OneLink via AppsFlyer
+    - OneLink is a way to create a deep link that works across platforms. It's like a URL for an app that works on both iOS and Android.
+    - We use OneLink.me created through AppsFlyer.
+    - AppsFlyer is a tool that tracks user behavior in the app.
+    - AppsFlyer is going away with EveryDollar Maui upgrade.
+    - Knowledge experts are Olivia Nitzsche, Chris Simeone (who built many onelinks), Ivan Portugal (great general knowledge), Meg and media team
+      (for starting accounts in AppsFlyer), Aaron Eversole (who would know if there's a need to do other methods of deep linking).
+    - OneLink templates are built in appsflyer.
+    - AppsFlyer has the DATA tracking for the onelinks generated with it.
+    - Deeplinking is fickle.
+    - SmartDollar uses Braze for deep linking as well.
+    - SmartDollar uses logic to provide a web link or the onelink based on the device. The OneLink does NOT decide whether to open in browser or app.
+    Rather, it only decides which app to open (iphone or android, or appstore/playstore).
+    - Drawbacks
+      - Limited on mobile...Can only open the app. Can't open a specific page in the app.
+      - AppsFlyer data is suspect. Olivia doesn't fully trust it.
+      - May be going away with Maui upgrade in 2 weeks.
+      - Links sometimes not working as expected.
+      - There are many many complicated factors which go into the final destination of the link, such as device, browser, os, email vs browser, etc.
+      - Seen more "bugs" in yahoo and safari.
+  - Apple Associated Domains: https://<fully qualified domain>/.well-known/apple-app-site-association
+    - Add a json file to the root of the domain. It's like a sitemap for the app. It tells the app where to go when it sees a link to the domain.
+    - Documentation: https://developer.apple.com/documentation/xcode/supporting-associated-domains
+    - Examples
+      - Reddit: https://reddit.com/.well-known/apple-app-site-association
+      - Best Buy: https://bestbuy.com/.well-known/apple-app-site-association
+      - Lyft: https://lyft.com/.well-known/apple-app-site-association
+      - Netflix: https://www.netflix.com/.well-known/apple-app-site-association
+  - Android App Links: https://<fully qualified domain>/.well-known/assetlinks.json
 
 ## Feb 26 - Mar 1
 - SmartDollar QA is live and publicly accessible at https://qa.smartdollar.com/app/dashboard
@@ -87,7 +158,7 @@ async function parseAndReply(response, message) {
   Because my red do requires a network call, it broke like 80 feature tests. I had to stub the network call in the `before do` block 
   for all 80 of those tests. This is a code smell.
   - Logic was great!
-```ruby
+```ru
 module Coaching
   class Indicator
     def initialize(target_date = DateTime.now)
