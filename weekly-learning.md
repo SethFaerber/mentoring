@@ -3,7 +3,66 @@ This documents the main things I learned this week.
 - "Confidence" means that I moved into a deeper understanding and consistent implementation in an area.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
-## Current Week:Apr 15- 19
+## Current June 17-21
+- Local SSH keys
+  - SSH keys are used to authenticate a user to a server like Gitlab. It's a way for Gitlab to recognize my computer so I don't have to enter my password every time I push or pull.
+  - Generate an SSH key on your local machine: 
+    - `ssh-keygen -t rsa -b 4096 -C your_email@example.com`
+  - Skip the passphrase by hitting enter twice.
+  - Add your apple keychain to your private key so you don't have to enter your password every time you push or pull from Gitlab 
+    - `ssh-add --apple-use-keychain ~/.ssh/id_rsa`
+  - View the public (`.pub`) key you just made: 
+    - `cat ~/.ssh/id_rsa.pub`
+    - It should start with `ssh-rsa` and end with your email.
+  - Copy the key and paste it into Gitlab under `Settings > SSH Keys`
+  - Do a test pull or push to see if it works.
+- Accessibility
+  - `aria-live` watches whatever element you attach it to and the screen reader will read it out loud whenever it changes. I used it to make the parent element with the aria-label
+  read its updated label which was changed whenever a sub-element of a checkbox was clicked or toggled. That way, the user doesn't have to leave the checkbox to hear the updated label.
+  - tabindex="0" makes an element focusable. tabindex="-1" makes it focusable programmatically, but not by the user.
+- Running packages locally in a consuming app.
+  You can run your consuming app and point it to your local version of this package, but you may have React version conflicts. To remedy this, follow these steps:
+
+  1. Build `financial-wellness-task-ui-engine` package: `yarn run build`
+  2. Remove the `node_modules/financial-wellness-task-ui` directory in the consuming app: `rm -rf node_modules/financial-wellness-task-ui`
+  3. Create a new `node_modules/financial-wellness-task-ui` directory in the consuming app: `mkdir node_modules/financial-wellness-task-ui`
+  4. Copy the `dist` directory from the `financial-wellness-task-ui-engine` package to the new `node_modules/financial-wellness-task-ui` directory in the consuming app: `cp -R ../financial-wellness-task-ui-engine/dist ./`
+  5. Copy the `package.json` file from the `financial-wellness-task-ui-engine` package to the new `node_modules/financial-wellness-task-ui` directory in the consuming app: `cp ../financial-wellness-task-ui-engine/package.json ./`
+  6. Run the consuming app
+
+  These steps will need to be repeated each time you make changes to the javascript in the `financial-wellness-task-ui-engine` package.
+
+  Below is a handy bash script to automate these steps (assuming your package and your consuming app are in the same directory):
+
+```bash
+  alias tasker='cd ../financial-wellness-task-ui-engine && yarn run build && cd - && rm -rf node_modules/financial-wellness-task-ui && mkdir node_modules/financial-wellness-task-ui && cd node_modules/financial-wellness-task-ui && cp -R ../../../financial-wellness-task-ui-engine/dist ./ && cp ../../../financial-wellness-task-ui-engine/package.json ./ && cd -'
+```
+
+## May 13-17
+- Merging two branches together before either aregit  merged into master.
+  - 
+
+## May 6-10
+- Tailwind
+  - hover and active.
+  - I'm getting good at it.
+- Coaching
+  - We have a terribly way of associating coaches with people in SmartDollar.
+- Database work
+  - Tomas and I did more database work
+- Authentication
+  - Passport.js is a middleware for Node.js that can be used for authentication.
+  - 
+
+## Apr 29 - May 3
+- URLs
+  - You can run JavaScript in Pendo! We use it to add a utm parameter to the URL which is then shared to mobile desktop so we can track opens from icon vs web visits.
+  - UTM parameters are used to track the effectiveness of marketing campaigns. They are added to the end of a URL like `?utm_source=facebook&utm_medium=cpc&utm_campaign=summer_sale`
+  - JavaScript to add to the parameter and GO is `window.location.href = window.location.href + "?utm_source=mobile-desktop-icon"`
+  - JavaScript to add to the parameter and STAY is `window.history.pushState({}, "", window.location.href + "?utm_source=mobile-desktop-icon")`
+  - Pendo tries to run the JS over and over. So have to do a hard
+
+## Week:Apr 15- 19
 - Develop branch
   - Merge your branch into the develop branch to test on the web
   - `git checkout master`
@@ -13,6 +72,8 @@ This documents the main things I learned this week.
   - `git rebase your-branch`
   - `git push --force`
   - Let it build
+  - Check status in [Go Pipelines Smartdollar-App_develop](https://websystems.ramseysolutions.net/go/tab/pipeline/history/smartdollar-app_develop)
+  - Open in https://www.test.smartdollar.com/app/dashboard
 - Building
   - Tailwind
     - Tailwind needs to be run every time a change happens to your css.
@@ -20,9 +81,12 @@ This documents the main things I learned this week.
     - This can be done with the command line `npx tailwindcss -i ./src/input.css -o ./src/output.css"`
     - This script can also be aliased in the package.json:
     ```json
+    { 
     "scripts": {
       "test": "jest",
-      "build": "npx tailwindcss -i ./src/input.css -o ./src/output.css",
+      "build": "npx tailwindcss -i ./src/input.css -o ./src/output.css"
+      }
+    }
     ```
     - Gotta make sure its looking at all your files though (finicky) in `tailwind.config.js`
     ```js
@@ -38,12 +102,12 @@ This documents the main things I learned this week.
       plugins: [],
     }
     ```
-  - Nodemon
-    - The constant `crtl + c` `node .` every time I make a change sucks.
-    - I can use `nodemon` to watch for changes and restart the server automatically.
-  - Running it all together
-    - I want to automatically rebuild my css and and restart my server when I make changes.
-    - `package.json` script: `"start": "nodemon --watch src --ext js,html,css --exec \"npm run build && node .\""`
+    - Nodemon
+      - The constant `crtl + c` `node .` every time I make a change sucks.
+      - I can use `nodemon` to watch for changes and restart the server automatically.
+    - Running it all together
+      - I want to automatically rebuild my css and and restart my server when I make changes.
+      - `package.json` script: `"start": "nodemon --watch src --ext js,html,css --exec \"npm run build && node .\""`
 
 ## Mar 4 - 8
 - Testing
