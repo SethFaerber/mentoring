@@ -3,7 +3,105 @@ This documents the main things I learned this week.
 - "Confidence" means that I moved into a deeper understanding and consistent implementation in an area.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
-## Current June 17-21
+## Current July 1-5
+- .Net Maui
+  - This work for Recommendation: https://github.com/lampo/everydollar-mobile-app/pull/4124
+  - Relay command annotation for building commands without all the nasty boilerplate.
+  ```csharp
+    [RelayCommand]
+    private async Task CommitAsync(CancellationToken token)
+    {
+      await MoveToNextRecommendationAsync(token);
+    } 
+  ```
+  - Add an event listener in the constructor, and then dispose of it in the dispose method.
+  ```csharp
+    public RecommendationsViewModel()
+    {
+      this.PropertyChanged += this.OnPropertyChanged;
+    }
+
+    public void Dispose()
+    {
+      this.PropertyChanged -= this.OnPropertyChanged;
+    }
+  ```
+  - Organizing code:
+```csharp
+using EveryDollar.SmartMoney.Models.Prompts;
+
+namespace EveryDollar.Guides.Modalities;
+
+[XamlCompilation(XamlCompilationOptions.Compile)]
+public sealed partial class BinaryModality : ModalityBaseView<ISingleQuestionPromptModel>
+{
+  // private static here
+  
+  // private readonly here
+
+  // private fields go here
+
+  public BinaryModality()
+  {
+    this.InitializeComponent();
+  }
+  
+  // all public properties
+  
+  // all private properties
+  
+  // public methods
+  
+  // protected methods
+
+  protected override void Dispose(bool disposing)
+  {
+    if (disposing)
+    {
+      this.QuestionViewRef.Dispose();
+    }
+
+    base.Dispose(disposing);
+  }
+
+  protected override void Setup()
+  {
+    if (this.unitViewModel.Prompt is ISingleQuestionPromptModel singleQuestionPromptModel)
+    {
+      this.QuestionViewRef.BindingContext = singleQuestionPromptModel.Question;
+      this.QuestionViewRef.GoToNextPromptCommand = this.unitViewModel.SubmitAsync;
+    }
+  }
+  
+  // private methods
+}
+```
+
+## June 24-28
+- Starting `ramsey-plus-smartmoney-api`
+  - Build the project: `mvn clean verify` to compile, build, and run tests.
+  - Start local database `docker-compose up` (make sure you `docker compose down` when finished).
+  - Start the AWS thingy: Leapp => `ramsey-plus-test`
+  - Seed the database with a script `./seed_data.sh`
+  - Start the project in IDE
+
+## Get it running
+
+`docker compose up -d`
+
+### User Profile Service
+[everydollar-user-profile-service](https://gitlab.com/ramsey-solutions/ramsey-plus/everydollar/everydollar-user-profile-service/)
+
+
+### SmartMoney API 
+[ramsey-smartmoney-api](https://gitlab.com/ramsey-solutions/ramsey-plus/ramsey-plus-smartmoney-api)
+
+
+### Mobile App
+[everydollar-mobile-app](https://github.com/lampo/everydollar-mobile-app)
+
+
+## June 17-21
 - Local SSH keys
   - SSH keys are used to authenticate a user to a server like Gitlab. It's a way for Gitlab to recognize my computer so I don't have to enter my password every time I push or pull.
   - Generate an SSH key on your local machine: 
