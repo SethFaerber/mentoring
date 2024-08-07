@@ -3,7 +3,27 @@ This documents the main things I learned this week.
 - "Confidence" means that I moved into a deeper understanding and consistent implementation in an area.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
-## Current July 1-5
+## Current July 15-19
+- Spring Framework
+  - Spring manages objext instances and their lifecycles.
+  - It can do this through singleton beans, prototype beans, and other scopes.
+  - It provides a wrapper to manage them which is called the Spring context.
+  - It provides database connectivity / data access
+    - connect
+    - query
+    - transaction management
+  - It does this all through a handy API instead of using the **painful** JDBC provided by stock Java.
+  - It provides Spring MVC for web applications.
+- Beans
+  - A bean is an object that is instantiated, assembled (through factory pattern), and managed by a Spring container.
+  - Instead of having class A create class B, Spring can create class B and inject it into class A.
+  - `@Bean` annotation is used above a method to declare that it returns a bean. It registers the method's return value as a bean.
+- Coupling
+  - Tight coupling is when two classes are dependent on each other. If one changes, the other has to change. Very bad.
+  - Loose coupling with interfaces is when two classes are dependent on an interface. If one changes, the other doesn't have to change. Very good.
+  - Loose coupling with Spring is when two classes are dependent on the Spring container. If one changes, the other doesn't have to change. Very good.
+
+## July 1-5
 - .Net Maui
   - This work for Recommendation: https://github.com/lampo/everydollar-mobile-app/pull/4124
   - Relay command annotation for building commands without all the nasty boilerplate.
