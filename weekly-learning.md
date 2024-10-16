@@ -3,7 +3,38 @@ This documents the main things I learned this week.
 - "Confidence" means that I moved into a deeper understanding and consistent implementation in an area.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
-## Current July 15-19
+## Current Oct 14-18
+- Docker
+  - `mvn clean verify` on mobile-bff would not run. It couldn't find the container. Basically, that was a lie.
+  It could find the container, but it was not able to authenticate. I had to check Administrative Access in Rancher Desktop
+  preferences.
+  ![img_7.png](img_7.png)
+  - I thought I had a conflict with it pointing to postgresql, but that wasn't it.
+  - In the future, if I do have a conflict, here are some useful commands.
+  - `brew services list` lists all the running services (instances of postgres).
+  - `brew services start/stop postgresql@16` start or stop a specific postgres services
+  - `docker context ls`
+  - `docker ps`
+  - `docker info`
+  - `ramsey docker-login` logs into the ecr (Elastic Container Registry) which acts like a source of truth for the code.
+  This is shortcut to the more elaborate command: `aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 058238361356.dkr.ecr.us-east-1.amazonaws.com`
+  But this can also be gotten at by going to ECR on web, logging in, finding repositories, clicking it, and getting push command.
+  - `docker ps` then `docker kill whateverSerialNumber`
+  - `docker image/container/volume prune` remove unused image/container/volumes (I freed up 42 gigs).
+
+## August 5-9
+- Tooling in EveryDollar
+  - Azure error when trying to build:
+    - There were random build errors around Azure. I had to delete the `bin` and `obj`.
+    - Wipe Strider down and start clean with `rivendell` `alias rivendell='rm -rf ~/.nuget/packages && rm -rf **/bin **/obj'`
+    - Reinstall workloads for maui: `sudo dotnet workload install maui ios maui-android maui-ios --no-cache --source https://api.nuget.org/v3/index.json`
+    - Invalidate caches in Strider.
+    - `dotnet restore --interactive`
+    - `dotnet build`
+    - Log into Azure dev ops from the website.
+    - When I start Strider there was a dialogue, I don't recall what, to log in to Azure DevOps and get a code.
+
+## July 15-19
 - Spring Framework
   - Spring manages objext instances and their lifecycles.
   - It can do this through singleton beans, prototype beans, and other scopes.
