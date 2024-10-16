@@ -21,6 +21,8 @@ This documents the main things I learned this week.
   But this can also be gotten at by going to ECR on web, logging in, finding repositories, clicking it, and getting push command.
   - `docker ps` then `docker kill whateverSerialNumber`
   - `docker image/container/volume prune` remove unused image/container/volumes (I freed up 42 gigs).
+- Running BFF or back end for front end locally.
+  - To point the app to the local bff, in `appsettings.local.json`, uncomment localhost and comment out 433.
 
 ## August 5-9
 - Tooling in EveryDollar
