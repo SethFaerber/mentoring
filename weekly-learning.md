@@ -12,6 +12,48 @@ This documents the main things I learned this week.
   - viewModels can run something from the constructor when they initialize.
   - Of course viewModels should themselves listen to the state of their models and automatically update if they are subscribed.
 - E$ has high walls between domains to keep spaghetti code from forming.
+- Squash/Merge before rebase
+  - Here's the deal...if you try to rebase against master, the rebase process goes through each one of your commits on your branch
+  and looks for merge conflicts starting with your first commit. If there is a conflict on one commit, you fix it, then the next commit
+  will have a conflict that will need to be fixed. Pain in the ass.
+  - Fix it by squashing all your commits into one commit.
+  - `git log` to see how many commits you have total before someone else's shows up. Example, 3 commits, and Jerry's was the 4th.
+  - `git rebase -i HEAD~[n]` where [n] is the number of commits including the one before yours (just in case). The `-i` flag allows
+  you to use an IDE to step-by-step fix it.
+  - In the IDE, you'll see a list of commits like this:
+```bash
+pick 1e0a396 Update dependency gts to v6
+pick 6af09d3 RPLUS-66540 Add migration status to get budget call
+pick b6ae46a Fix migration status fetching
+pick fd2b3fd If migration status fails, default to false
+pick af38086 [Slack] Deserialize UnitFilterRule attributes and operators into enum values
+pick 795b9c6 Added Debug Logs to log in the Spring Boot app
+pick 6f88408 [RPLUS-71603] Add copy of Unit Filtering JSON with changes to current units
+pick 2c4cb6b [RPLUS-71599] Add new handoff units to unit filtering JSON
+```
+  - `pick` means "preserve this as a commit"
+  - `s` or probably `squash` means "take all the stuff in this commit, and squash it into the next commit above it."
+  - `r` means "pick this, but rename it when I'm done"
+```bash
+r 1e0a396 Update dependency gts to v6
+s 6af09d3 RPLUS-66540 Add migration status to get budget call
+s b6ae46a Fix migration status fetching
+s fd2b3fd If migration status fails, default to false
+pick af38086 [Slack] Deserialize UnitFilterRule attributes and operators into enum values
+pick 795b9c6 Added Debug Logs to log in the Spring Boot app
+pick 6f88408 [RPLUS-71603] Add copy of Unit Filtering JSON with changes to current units
+pick 2c4cb6b [RPLUS-71599] Add new handoff units to unit filtering JSON 
+```
+  - In the above example, the oldest commit is picked, followed by the next 3. Then "fd2b3fd If migration status fails, default to false"the latest commit "1e0a396 Update dependency gts to v6" will be the main single commit that I will squash the other
+is squashed up into the next which is then squashed up again until we get to `r` which receives the squashing of all the others into itself
+and will then allow me to reword.
+  - Once that is all done
+    - `git checkout master`
+    - `git pull`
+    - `git checkout -`
+    - `git rebase master -i`
+    - Resolve merge conflicts
+    - `git push --force`
 
 ## Oct 14-18
 - Docker
