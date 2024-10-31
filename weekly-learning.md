@@ -3,7 +3,17 @@ This documents the main things I learned this week.
 - "Confidence" means that I moved into a deeper understanding and consistent implementation in an area.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
-## Current Oct 14-18
+## Current Oct 28 - Nov 1
+- Void
+  - void makes sense now. If I have a method that triggers a property to change, then the method call doesn't actually return
+  anything. Instead, the method just changes a property. So it would be void.
+- MAUI Lifecycles
+  - Page has `OnAppearing()` and `OnDisappearing` in the code-behind of the xaml page.
+  - viewModels can run something from the constructor when they initialize.
+  - Of course viewModels should themselves listen to the state of their models and automatically update if they are subscribed.
+- E$ has high walls between domains to keep spaghetti code from forming.
+
+## Oct 14-18
 - Docker
   - `mvn clean verify` on mobile-bff would not run. It couldn't find the container. Basically, that was a lie.
   It could find the container, but it was not able to authenticate. I had to check Administrative Access in Rancher Desktop
