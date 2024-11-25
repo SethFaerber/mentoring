@@ -3,7 +3,20 @@ This documents the main things I learned this week.
 - "Confidence" means that I moved into a deeper understanding and consistent implementation in an area.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
-## Current Oct 28 - Nov 1
+## Current Nov 18-22
+- Java
+  - Annotations: More black magic than rails. Add @WhateverAnnotation above the code you want to pass to it. It acts like
+  a wrapping function or something. @Async @Params, and tons of others. You just need to know the docs around them to know
+  what they are doing though.
+- Session
+  - Session can persist before and after log in which is pretty cool.
+  - We shoved a referral code from a query parameter into session before login, then after login (when it was stripped away),
+  we pulled it back down to forward it after log-in/registration to associate an account creation with a referral code.
+- Query Params
+  - Very useful. Anything can be added as long as `/endpoint?referral_code=a2x9sy&?source=paid-ad`
+
+
+## Oct 28 - Nov 1
 - Void
   - void makes sense now. If I have a method that triggers a property to change, then the method call doesn't actually return
   anything. Instead, the method just changes a property. So it would be void.
