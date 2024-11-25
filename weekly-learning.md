@@ -3,7 +3,27 @@ This documents the main things I learned this week.
 - "Confidence" means that I moved into a deeper understanding and consistent implementation in an area.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
-## Current Nov 18-22
+## Current Nov 25-29
+- Dynatrace Query
+  - Log into correct environment.
+  - Logs & Events Classic
+  - ```bash
+    fetch logs
+    | filter matchesValue(service.name, "everydollar-web-bff") and contains(content, "bonus_entry")
+    | sort timestamp desc
+    | fields timestamp, message
+    ```
+  - Couple things to note
+    - `fetch logs` returns every log for every event in every repo
+    - `content` contains can be very broad and useful!
+    - ACTIONS => Export csv
+  - Loggly Query
+    - ```bash
+      tag:"env-qa" json.app_id:"education-solutions.ramsey-education" json.request_controller:"Api::BonusEntryController" json.response_status:"400" json.request_parameters:"{"referral_code":"zinfandel","entry_type":"everydollar_livestream_account_bonus","controller":"api/bonus_entry","action":"create","bonus_entry":{"entry_type":"everydollar_livestream_account_bonus"}}" json.request_parameters:"{"referral_code":"zinfandel","entry_type":"everydollar_livestream_account_bonus","controller":"api/bonus_entry","action":"create","bonus_entry":{"entry_type":"everydollar_livestream_account_bonus"}}" json.request_parameters:"{"referral_code":"zinfandel","entry_type":"everydollar_livestream_account_bonus","controller":"api/bonus_entry","action":"create","bonus_entry":{"entry_type":"everydollar_livestream_account_bonus"}}"
+      ```
+    - That's just ugly, but what can you do.
+
+## Nov 18-22
 - Java
   - Annotations: More black magic than rails. Add @WhateverAnnotation above the code you want to pass to it. It acts like
   a wrapping function or something. @Async @Params, and tons of others. You just need to know the docs around them to know
