@@ -3,7 +3,30 @@ This documents the main things I learned this week.
 - "Confidence" means that I moved into a deeper understanding and consistent implementation in an area.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 
-## Current Nov 25-29
+## Current Dec 16-20
+- Azure Pipelines GitLab Token Refresh
+  - Azure Pipelines doesn't actually run EveryDollar tests. Instead, it triggers the tests to run in GitLab, then monitors and reports the progress.
+  - Because of this, Azure needs a GitLab token to be able to log in.
+  - Occasionally, that token needs to be refreshed. I'm not sure who sends it, but Zack Dean alerted me to it.
+  - Log into Azure/RamseySolutions/Ramsey Plus/Pipelines
+  - Library/Mobile Automation/Variable Group/GITLAB_ACCESS_TOKEN
+  - Paste new token and save
+![img_8.png](img_8.png)
+
+## Dec 9-13
+- Azure
+  - Pipelines. I can make a QA build from ANY branch. Useful if I want to debug something.
+- Runway
+  - Allows you an easy way to download builds onto a physical device
+- Console (XCode)
+  - Can show logs and activity on a physical device.
+
+## Dec 2 - 6
+- `reflog`
+  - I did a bad squash, merge and rebase. Reflog shows you EVERYTHING that has happened on that branch.
+  - 
+
+## Nov 25-29
 - Dynatrace Query
   - Log into correct environment.
   - Logs & Events Classic
