@@ -2,8 +2,10 @@
 This documents the main things I learned this week.
 - "Confidence" means that I moved into a deeper understanding and consistent implementation in an area.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
+- 
 
 ## Current Dec 16-20
+- HTTP request watching using [HTTP Toolkit](https://httptoolkit.com/docs/guides/ios/)
 - Azure Pipelines GitLab Token Refresh
   - Azure Pipelines doesn't actually run EveryDollar tests. Instead, it triggers the tests to run in GitLab, then monitors and reports the progress.
   - Because of this, Azure needs a GitLab token to be able to log in.
