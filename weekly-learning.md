@@ -4,7 +4,17 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 - 
 
-## Current Dec 16-20
+## Current Jan 6-10
+- Profiling in .NET MAUI
+  - Overview: https://github.com/dotnet/maui/wiki/Profiling-.NET-MAUI-Apps
+  - Android: https://github.com/dotnet/android/blob/main/Documentation/guides/tracing.md
+  - VSCode: https://marketplace.visualstudio.com/items?itemName=nromanov.dotnet-meteor
+- SyncFusion Budget Lag Bug
+  - The SyncFusion control is just shitty at rendering things.
+  - When the view is drawn (even though it haas all the data), SyncFusion does some kind of redrawing loop that causes a lot of lag.
+  - [VirtualListView](https://github.com/Redth/Maui.VirtualListView) is a good alternative, but we need to remove SyncFusion and then build our own swipe-to-delete, drag-drop, and reorder behaviors within it. That's a lot of work.
+
+## Dec 16-20
 - HTTP request watching using [HTTP Toolkit](https://httptoolkit.com/docs/guides/ios/)
 - Azure Pipelines GitLab Token Refresh
   - Azure Pipelines doesn't actually run EveryDollar tests. Instead, it triggers the tests to run in GitLab, then monitors and reports the progress.
