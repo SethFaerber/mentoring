@@ -13,6 +13,9 @@ This documents the main things I learned this week.
   - Select the Device you want
   - Click Next to dl sdk.
   - May have to restart IDE or emulator a couple times.
+- Maui sucks
+  - on iOS, something is really buggy with show/hide logic and rendering.
+  - sometimes setting different properties will fix it.
 
 ## Jan 6-10
 - Profiling in .NET MAUI
