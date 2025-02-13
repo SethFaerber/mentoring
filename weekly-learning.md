@@ -4,11 +4,22 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 - 
 
-## Current Jan 6-10
+## Current Feb 10-14
+- Set up a new virtual Android device to debug on
+  - Open Android Studio
+  - More Actions > Virtual Device Manager
+  ![img_9.png](img_9.png)
+  - "+"
+  - Select the Device you want
+  - Click Next to dl sdk.
+  - May have to restart IDE or emulator a couple times.
+
+## Jan 6-10
 - Profiling in .NET MAUI
   - Overview: https://github.com/dotnet/maui/wiki/Profiling-.NET-MAUI-Apps
   - Android: https://github.com/dotnet/android/blob/main/Documentation/guides/tracing.md
   - VSCode: https://marketplace.visualstudio.com/items?itemName=nromanov.dotnet-meteor
+  - Speedscope (for reading output json files): https://www.speedscope.app/
 - SyncFusion Budget Lag Bug
   - The SyncFusion control is just shitty at rendering things.
   - When the view is drawn (even though it haas all the data), SyncFusion does some kind of redrawing loop that causes a lot of lag.
