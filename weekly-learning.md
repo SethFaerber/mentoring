@@ -4,7 +4,15 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 - 
 
-## Current Feb 10-14
+## Current Feb 17-21
+- Automation Ids and xaml string interpolation
+  - `AutomationId="{Binding GroupAmountAutomationId, StringFormat='{0}Details', FallbackValue='GroupAmount'}"`
+  - The `StringFormat` allows you to format the string before it is output
+  - The `{0}` grabs the 0 indexed parameter (the Binding) and puts it into the string. The rest concatenates to it.
+- Full Screen Grid and SafeArea
+  - For whatever stupid reason, a Grid's background WILL overflow the SafeArea on iOS, but the content inside the grid will NOT, unless it is given `IgnoreSafeArea="True"`
+
+## Feb 10-14
 - Set up a new virtual Android device to debug on
   - Open Android Studio
   - More Actions > Virtual Device Manager
@@ -16,6 +24,8 @@ This documents the main things I learned this week.
 - Maui sucks
   - on iOS, something is really buggy with show/hide logic and rendering.
   - sometimes setting different properties will fix it.
+- Azure runs our CI/CD pipelines. Integrated with Github.
+- 
 
 ## Jan 6-10
 - Profiling in .NET MAUI
