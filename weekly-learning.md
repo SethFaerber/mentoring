@@ -4,7 +4,20 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 - 
 
-## Current Feb 17-21
+## Current March 10-14
+- Profiling the threads in an app
+  - Sometimes you need to see all the activity running on each thread in an app. For our mobile app, we can do this...
+  - `dotnet-trace` for MAUI https://github.com/dotnet/maui/wiki/Profiling-.NET-MAUI-Apps#ios-mac-etc
+  - run the tracer 
+  - do your activity
+  - stop the tracer which exports to json file somewhere
+  - drop the json file into www.speedscope.app
+  - ![img_10.png](img_10.png)
+- Monitor network requests with HTTP Toolkit
+  - https://httptoolkit.com/
+  - Attach to a device
+
+## Feb 17-21
 - Automation Ids and xaml string interpolation
   - `AutomationId="{Binding GroupAmountAutomationId, StringFormat='{0}Details', FallbackValue='GroupAmount'}"`
   - The `StringFormat` allows you to format the string before it is output
