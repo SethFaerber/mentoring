@@ -4,7 +4,77 @@ This documents the main things I learned this week.
 - "Awareness" means I have an understanding of this topic, but am not fully practiced in it.
 - 
 
-## Current March 10-14
+## Current April 21-25
+This week I finished the Subscription Checkout App and SPaCR app work. Mostly, testing was the tricky part.
+- Mocking
+  - Mocking a network call can be a pain in the ass.
+  - Setting up all your objects when they are all interdependent on one another is also a pain in the ass.
+- Arrange
+  - Arranging a test is important. You need to instantiate all necessary objects, mocks, and stubs beforehand.
+- CICD
+  - Pipeline configuration lives in the repo!
+    - `.gitlab-ci.yml` is our file that sets up configurations for our pipelines. in our case, the Pipeline was saving css files to the wrong s3 bucket (we store css files on aws, not sure why...probably for caching and speed of loading). Anyway, the pipeline configuration was just throwing it into a fake directory because it was adding it twice like /ramsey/resources/css/ramsey/resources/css/filename.css. We had to set a variable that overrode that like this: 
+      ```
+      variables:
+      ECR_IMAGE_NAME: 'subscription-checkout-app'
+      LOCAL_STATIC_ASSETS_SYNC_LOCATION: 'public/ruby/${ECR_IMAGE_NAME}'
+       ```
+      The bottom line was missing.
+    - 
+
+## April 14-18
+This week I wrapped up some work which updated the generic, company-wide checkout form to accept legal copy.
+
+It was incredibly complicated for a couple reasons:
+- Onwership of the repos was not clear
+  - Our team owns ascension for EveryDollar, but this form is generic for R+, EveryDollar, and FPU
+  - The repo in question was almost entirely controlled by a dev who quit two weeks ago.
+  - The repo changed hands after that and the new owners knew nothing about how it works.
+- The README was pretty bare-bones.
+- The text is rendered from another repo (a ruby lambda...I've never worked on anything like this before)
+
+Here are the things I learned
+- Documentation
+  - Leave docs better than you find them. Friggin crazy how bad these were.
+  - Explain odd patterns...there's a "purchase" and a "subscription" which have a lot of parallel code and  I can't figure out why.
+- Rails running locally
+  - You need a database running locally to run rails tests...at least for this repo.
+    - See if your database is running: `brew services list`
+    - Start it if you need to `brew services start postgresql@14` or whatever you want to start
+    - Create a postgresql user if you need to 
+      - Start postgresql cli `psql postgres`
+      - Create the specified user...in this case, a user called "postgres" `CREATE USER postgres WITH CREATEDB;`
+    - Set up the database `bundle exec rails db:setup`
+    - Then run tests
+- Optimizely
+  - Optimizely has three different ways of running tests
+    - "Feature Tests" / "back end" (mobile engineers are biased this way)
+      - The most data-rich way to run tests and control features 
+      - They are implemented in code
+      - They need an Optimizely SDK and boilerplate in the repo to operate properly
+      - They therefore can be more flexible with the data we need like user axids and important logging information which can be sent to Segment.
+    - "Client Side Tests" (marketers prefer this?)
+      - Fastest way to set up a split test as it requires nothing more than an optimizely tag in the repo.
+      - They are implemented in optimizely
+      - In Optimizely, you specify a URL you want to run a test on
+        - Users are intercepted by Optimizely when they hit that url before the page renders
+        - Optimizely buckets them
+        - Optimizely hijacks the markup of the page and overrides the html for the experiment
+      - It's a "no code" way of experimenting.
+      - But you must implement code changes after a successful experiment.
+    - A third kind that Gawain mentioned, but I don't recall
+  - Optimizely doesn't automatically have all the data we might want. Segment and other systems may help QA/Trio visualize the data.
+- Lambda
+  - Can't run it locally since it's just a yml file...at least the one I was tinkering with.
+  - develop/feature branch deployed to test is useful so you can see your changes when another locally running repo needs it.
+- Shocking fact: Checkout is shockingly under-developed
+  - ZERO tests for anything EveryDollar
+  - Optimizely has been ripped out? Is in shambles?
+  - The fact that no one knows the state of optimizely in the repo is also shocking.
+  - Tracking conversions is in a shambles...but it's the main gateway to conversions 🤦‍♂️
+  - The Readme for such an important app is a mess.
+
+## March 10-14
 - Profiling the threads in an app
   - Sometimes you need to see all the activity running on each thread in an app. For our mobile app, we can do this...
   - `dotnet-trace` for MAUI https://github.com/dotnet/maui/wiki/Profiling-.NET-MAUI-Apps#ios-mac-etc
